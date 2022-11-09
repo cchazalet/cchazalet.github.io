@@ -4,6 +4,7 @@ PREFIX=/tmp/$username/apache2
 PATHCODE="/home/$username/Documents/5TCA/cchazalet.github.io/"
 
 echo "Ce script déploie Apache (port: $PORT) sur les machines TC (dans le dossier $PREFIX)" 
+echo "L'emplacement du site est $PATHCODE"
 cd /tmp
 mkdir $username
 cd /tmp/$username
@@ -37,6 +38,7 @@ cp $PREFIX/conf/httpd.conf $PREFIX/conf/httpd.conf.ori
 sed -i "s:^Listen.*:Listen $PORT:g" $PREFIX/conf/httpd.conf
 
 rm -rf $PREFIX/htdocs
+cd $PREFIX
 ln -s $PATHCODE htdocs
 
 #Start apache
