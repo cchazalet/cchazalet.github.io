@@ -9,6 +9,6 @@ export default {
 }
 </script>
 
-<template>	
+<template>
 	<Header/>
 </template>
