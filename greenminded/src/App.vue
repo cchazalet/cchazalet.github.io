@@ -1,20 +1,17 @@
 <script>
-import NavLink from './components/NavLink.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
 export default {
 	name: 'App',
 	components: {
-		NavLink
+		Header,
+		Footer
 	}
 }
 </script>
 
 <template>
-	<div id="app">
-		<nav>
-			<NavLink url="/" text="Accueil" />
-			<NavLink url="/about" text="À propos" />
-			<NavLink url="/contact" text="Contact" />
-		</nav>
-	</div>
+	<Header/>
+	<Footer/>
 </template>
