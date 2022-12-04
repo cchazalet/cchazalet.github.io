@@ -1,6 +1,9 @@
 <template>
-    <div id="result">
-      <h1>Main</h1>
+    <div id="main">
+      <LocationElement>
+        Homepage
+      </LocationElement>
+      <h2>Main</h2>
       <div>
         <router-view></router-view>
         <router-link to='/result'>Result</router-link>
@@ -9,10 +12,13 @@
   </template>
   
   <script>
+  import LocationElement from './Location.vue'
+
   export default {
-	name: 'MainPage',
-	components: {
-	}
+    name: 'MainPage',
+    components: {
+      LocationElement,
+    }
   }
   </script>
   
