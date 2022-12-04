@@ -13,11 +13,22 @@
   
   <script>
   import LocationElement from './Location.vue'
+  import API from "../plugins/axiosInstance"
 
   export default {
     name: 'MainPage',
     components: {
       LocationElement,
+    },
+    methods:{
+      getData: function(){
+        API({
+          url:'/test',
+          method:'post'
+        }).then((res)=>{
+          return data
+        })
+      }
     }
   }
   </script>
