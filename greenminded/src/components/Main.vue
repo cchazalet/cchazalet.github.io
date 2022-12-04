@@ -26,7 +26,7 @@
           url:'/test',
           method:'post'
         }).then((res)=>{
-          return data
+          return res
         })
       }
     }
