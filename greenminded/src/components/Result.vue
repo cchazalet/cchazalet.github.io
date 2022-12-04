@@ -3,17 +3,23 @@
       <LocationElement>
         Homepage > Results
       </LocationElement>
-      <h1>Result</h1>
+      <SearchCriteriaElement></SearchCriteriaElement>
+      <ResultListElement>
+      </ResultListElement>
     </div>
   </template>
   
   <script>
   import LocationElement from './Location.vue';
+  import SearchCriteriaElement from './result_components/SearchCriteria.vue'
+  import ResultListElement from './result_components/ResultList.vue';
 
   export default {
     name: 'ResultPage',
     components: {
       LocationElement,
+      SearchCriteriaElement,
+      ResultListElement
     }
   }
   </script>
