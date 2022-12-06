@@ -9,7 +9,8 @@ const routes = [
 
     },
     {
-        path: '/result',
+        name: 'result',
+        path: '/result/:query?',
         component: Result,
     },
 ]
