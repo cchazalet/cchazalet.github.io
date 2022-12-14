@@ -28,16 +28,15 @@
       ResultListElement
     },
     mounted(){
+
       API({
         url:'/journey/getJourneyInfo',
         method:'post',
         data: {
-          //date: this.searchCriteria.date,
-          date: '20221215',
+          date: this.searchCriteria.date,
           //destination: this.searchCriteria.destination,
           destination: 'Paris-Gare-de-Lyon',
-          //hour: this.searchCriteria.hour,
-          hour: 10,
+          hour: parseInt(this.searchCriteria.hour.slice(0,2)),
           //source: this.searchCriteria.source,
           source: 'Lyon-Part-Dieu'
         }
@@ -49,7 +48,6 @@
           console.log('ERROR!')
           console.log(res.data.code)
         }
-        return res
       })
     },
     methods:{
