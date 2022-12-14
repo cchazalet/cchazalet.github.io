@@ -3,10 +3,8 @@
       <LocationElement>
         Homepage > Results
       </LocationElement>
-      <SearchCriteriaElement></SearchCriteriaElement>
-      <ResultListElement>
-      </ResultListElement>
-      {{searchCriteria}}
+      <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
+      <ResultListElement :result_list="data"></ResultListElement>
     </div>
   </template>
   
@@ -18,10 +16,10 @@
 
   export default {
     name: 'ResultPage',
-    data(){
+    data(){Array
       return {
         searchCriteria: this.$route.query,
-        
+        data: this.data,
       }
     },
     components: {
@@ -34,16 +32,22 @@
         url:'/journey/getJourneyInfo',
         method:'post',
         data: {
-          'date': this.searchCriteria.date,
-          'destination': this.searchCriteria.destination,
-          'hour': this.searchCriteria.hour,
-          'source': this.searchCriteria.source,
+          //date: this.searchCriteria.date,
+          date: '20221215',
+          //destination: this.searchCriteria.destination,
+          destination: 'Paris-Gare-de-Lyon',
+          //hour: this.searchCriteria.hour,
+          hour: 10,
+          //source: this.searchCriteria.source,
+          source: 'Lyon-Part-Dieu'
         }
       }).then((res)=>{
-        if (res.ok){
-          this.data = res.data
+        if (res.data.ok){
+          this.data = res.data.data.journeyVOList
+          console.log(this.data)
         }else{
           console.log('ERROR!')
+          console.log(res.data.code)
         }
         return res
       })
