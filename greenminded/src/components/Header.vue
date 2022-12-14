@@ -20,14 +20,11 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link mx-2 active" aria-current="page" href="#"
-              >Home</a
+              >Search</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Pricing</a>
+            <a class="nav-link mx-2" href="#">About us</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -38,12 +35,11 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Company
+              Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Blog</a></li>
-              <li><a class="dropdown-item" href="#">About Us</a></li>
-              <li><a class="dropdown-item" href="#">Contact us</a></li>
+              <li><a class="dropdown-item" href="#">Login</a></li>
+              <li><a class="dropdown-item" href="#">My Trips</a></li>
             </ul>
           </li>
         </ul>
