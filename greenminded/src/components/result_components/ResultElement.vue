@@ -23,3 +23,13 @@
     }
 
 </script>
+
+<style scoped>
+    #result_element{
+        border-color: #81b622;
+        border-radius: 5px;
+        border-style: groove;
+        margin-top: 5px;
+        padding: 5px;
+    }
+</style>

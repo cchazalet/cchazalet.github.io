@@ -26,13 +26,15 @@
 
 <style scoped>
     #search_criteria {
-        border-radius: 5px;
-        border-color: #81b622;
+        /* border-radius: 5px; */
+        border-color: #cfe0af;
         border-width: 2px;
         border-style: solid;
+        background-color: #cfe0af;
         height: 100px;
         width: auto;
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         text-align: center;
     }
 
