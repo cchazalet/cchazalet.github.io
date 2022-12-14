@@ -34,11 +34,11 @@
         method:'post',
         data: {
           date: this.searchCriteria.date,
-          //destination: this.searchCriteria.destination,
-          destination: 'Paris-Gare-de-Lyon',
+          destination: this.searchCriteria.destination,
+          //destination: 'Paris-Gare-de-Lyon',
           hour: parseInt(this.searchCriteria.hour.slice(0,2)),
-          //source: this.searchCriteria.source,
-          source: 'Lyon-Part-Dieu'
+          source: this.searchCriteria.source,
+          //source: 'Lyon-Part-Dieu'
         }
       }).then((res)=>{
         if (res.data.ok){
