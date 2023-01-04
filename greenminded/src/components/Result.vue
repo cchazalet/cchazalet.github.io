@@ -4,6 +4,7 @@
         Homepage > Results
       </LocationElement>
       <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
+      <h2>Train</h2>
       <ResultListElement :result_list="data"></ResultListElement>
     </div>
   </template>
@@ -49,6 +50,8 @@
           console.log(res.data.code)
         }
       })
+
+      
     },
     methods:{
 
