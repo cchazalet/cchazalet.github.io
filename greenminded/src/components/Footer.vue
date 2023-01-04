@@ -58,7 +58,7 @@
               <a class="text-black">Shipping Rates</a>
             </p>
             <p>
-              <a class="text-black">Help</a>
+              <a class="text-black">Help2</a>
             </p>
           </div>
 
