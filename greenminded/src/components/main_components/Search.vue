@@ -181,6 +181,7 @@ export default {
     },
     components: {
 
+<<<<<<< HEAD
     },
     methods: {
         searchIte() {
@@ -200,6 +201,28 @@ export default {
         }
     },
 }
+=======
+        },
+        methods:{
+            searchIte(){
+                var reg1 = new RegExp('-', 'g')
+                this.$router.push({
+                    name: 'result',
+                    query: {
+                        'source': this.departure,
+                        'destination': this.arrival,
+                        'hour': this.time,
+                        'date': this.date.replace(reg1,''),
+                        'price': this.price,
+                        'duration': this.duration,
+                        'ecology': this.ecology,
+                        'date_': this.date
+                    }
+                })
+            }
+        },
+    }
+>>>>>>> 8a0f693e90fca0fdd4b4fa756c06b0a226dbe9ec
 
 </script>
 
