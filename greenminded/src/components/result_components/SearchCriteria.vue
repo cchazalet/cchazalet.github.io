@@ -3,7 +3,7 @@
         <div id = "sub_search1">
             <h4>{{msg.source || 'Paris-Gare-de-Lyon'}}->{{msg.destination || 'Lyon-Part-Dieu'}}</h4>
             <h4>  </h4>
-            <h4>{{msg.date || '15-12-2022'}} {{msg.hour || '10h26'}}</h4>
+            <h4>{{msg.date_ || '15-12-2022'}} {{msg.hour || '10h26'}}</h4>
         </div>
         <div id = "sub_search2">
             <h4>Price:    {{msg.price}}</h4>

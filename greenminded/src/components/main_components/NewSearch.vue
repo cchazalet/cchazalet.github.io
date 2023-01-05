@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-lg-1 col-md-3 col-sm-12 p-0">
                         <input name="submit" value="Search" class="btn btn-success
-                                                            btn-lg btn-block wrn-btn" type="submit"
+                                                            btn-lg btn-block wrn-btn"
                             @click="searchIte()">
                     </div>
                 </div>
@@ -59,9 +59,11 @@
             </button>
         </div>
     </section>
+    <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP</AlertElement>
 </template>
 <script>
 // import API from '../../plugins/axiosInstance'
+ import AlertElement from '../Alert.vue';
 
 export default {
     name: 'SearchElement',
@@ -69,31 +71,44 @@ export default {
         return {
             departure: '',
             arrival: '',
-            date: NaN,
-            time: NaN,
+            date: '',
+            time: '',
             price: 0,
             duration: 0,
             ecology: 0,
+            showAlert: false,
         }
     },
     components: {
+        AlertElement,
 
     },
     methods: {
         searchIte() {
-            var reg1 = new RegExp('-', 'g')
-            this.$router.push({
-                name: 'result',
-                query: {
-                    'source': this.departure,
-                    'destination': this.arrival,
-                    'hour': this.time,
-                    'date': this.date.replace(reg1, ''),
-                    'price': this.price,
-                    'duration': this.duration,
-                    'ecology': this.ecology,
-                }
-            })
+            if (this.departure == '' || this.arrival == '' || this.date == '' || this.time == ''){
+                //console.log(this.departure=='', this.arrival=='', isNaN(this.date), isNaN(this.time))
+                this.showAlert = true
+            }else{
+                console.log('router')
+                var reg1 = new RegExp('-', 'g')
+                this.$router.push({
+                    name: 'result',
+                    query: {
+                        'source': this.departure,
+                        'destination': this.arrival,
+                        'hour': this.time,
+                        'date': this.date.replace(reg1, ''),
+                        // 'price': this.price,
+                        // 'duration': this.duration,
+                        // 'ecology': this.ecology,
+                        'date_': this.date
+                    }
+                })
+            }
+
+        },
+        hideModal(){
+            this.showAlert = false
         }
     },
 }
