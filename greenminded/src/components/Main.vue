@@ -14,7 +14,7 @@
   
   <script>
   import LocationElement from './Location.vue'
-  import SearchElement from './main_components/Search.vue'
+  import SearchElement from './main_components/NewSearch.vue'
   //import API from "../plugins/axiosInstance"
 
   export default {
