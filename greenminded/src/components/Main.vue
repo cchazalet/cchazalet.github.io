@@ -1,35 +1,31 @@
 <template>
-    <div id="main">
-      <LocationElement>
-        Homepage
-      </LocationElement>
-      <SearchElement></SearchElement>
-      <div>
-        <!-- <router-view></router-view>
+  <div id="main">
+    <LocationElement> Homepage </LocationElement>
+    <SearchBar></SearchBar>
+    <CarousselSlides></CarousselSlides>
+    <div>
+      <!-- <router-view></router-view>
         <router-link to="{path:'/result', push:{key:'value'}}">Result</router-link> -->
-        <!-- <button @click="searchIte()">CHERCHER</button> -->
-      </div>
+      <!-- <button @click="searchIte()">CHERCHER</button> -->
     </div>
-  </template>
-  
-  <script>
-  import LocationElement from './Location.vue'
-  import SearchElement from './main_components/NewSearch.vue'
-  //import API from "../plugins/axiosInstance"
+  </div>
+</template>
 
-  export default {
-    name: 'MainPage',
-    components: {
-      LocationElement,
-      SearchElement,
+<script>
+import LocationElement from "./Location.vue";
+import SearchBar from "./main_components/SearchBar.vue";
+import CarousselSlides from "./main_components/CarousselSlides.vue";
+//import API from "../plugins/axiosInstance"
 
-    },
-    methods:{
+export default {
+  name: "MainPage",
+  components: {
+    LocationElement,
+    SearchBar,
+    CarousselSlides,
+  },
+  methods: {},
+};
+</script>
 
-    }
-  }
-  </script>
-  
-  <style scoped>
-
-  </style>
+<style scoped></style>
