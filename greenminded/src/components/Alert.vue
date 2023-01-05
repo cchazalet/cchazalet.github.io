@@ -39,7 +39,7 @@ export default{
     },
     methods:{
         close(){
-            console.log('click')
+            //console.log('click')
             this.hideModal()
         }
     }

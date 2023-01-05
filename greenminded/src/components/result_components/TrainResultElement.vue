@@ -58,8 +58,8 @@ export default {
     border-radius: 5px;
     border-style: groove;
     margin-top: 5px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 5px;
     padding-left: 5%;
 }
@@ -78,6 +78,7 @@ export default {
 
 .logo-transport-type {
     margin-top: 10px;
-    width: 80px;
+    width:100%;
+    max-width: 80px;
 }
 </style>

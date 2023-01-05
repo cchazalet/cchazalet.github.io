@@ -86,7 +86,7 @@ export default {
     methods: {
         searchIte() {
             if (this.departure == '' || this.arrival == '' || this.date == '' || this.time == ''){
-                //console.log(this.departure=='', this.arrival=='', isNaN(this.date), isNaN(this.time))
+                console.log(this.departure=='', this.arrival=='')
                 this.showAlert = true
             }else{
                 console.log('router')
@@ -98,9 +98,6 @@ export default {
                         'destination': this.arrival,
                         'hour': this.time,
                         'date': this.date.replace(reg1, ''),
-                        // 'price': this.price,
-                        // 'duration': this.duration,
-                        // 'ecology': this.ecology,
                         'date_': this.date
                     }
                 })
