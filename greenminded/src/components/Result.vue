@@ -6,11 +6,19 @@
       <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
       <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination" 
                           :getTrainResults="getTrainResults"></TrainSearchElement>
-      <ResultListElement :result_list="trainData"></ResultListElement>
+      <p v-if="trainResultState ==='Null'">Choisir les stations pour CHERCHER</p>
+      <p v-else-if="trainResultState === 'Chercher'">Recherche En Cours</p>
+      <ResultListElement v-else-if="trainResultState === 'Result'" :result_list="trainData"></ResultListElement>
+      <p v-else>Aucun Resultat</p>
+
+
       <BusSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination"
                         :getBusResults="getBusResults"></BusSearchElement>
-      <BusResultListElement :result_list="busData" :bus_depart="busDepart" :bus_arrival="busArrival"></BusResultListElement>
-      
+      <p v-if="busResultState ==='Null'">Choisir les stations pour CHERCHER</p>
+      <p v-else-if="busResultState === 'Chercher'">Recherche En Cours</p>
+      <BusResultListElement v-else-if="busResultState === 'Result'" :result_list="busData" :bus_depart="busDepart" :bus_arrival="busArrival"></BusResultListElement>
+      <p v-else>Aucun Resultat</p>
+
     </div>
   </template>
   
@@ -25,13 +33,15 @@
 
   export default {
     name: 'ResultPage',
-    data(){Array
+    data(){
       return {
         searchCriteria: this.$route.query,
         trainData: this.trainData,
         busData: this.busData,
         busDepart: this.busDepart,
         busArrival: this.busArrival,
+        trainResultState: 'Null',
+        busResultState: 'Null',
       }
     },
     components: {
@@ -48,6 +58,7 @@
     },
     methods:{
       getTrainResults(depart, arrival){
+        this.trainResultState = 'Chercher'
         API({
           url:'/journey/getJourneyInfo',
           method:'post',
@@ -60,16 +71,18 @@
         }).then((res)=>{
           if (res.data.ok){
             this.trainData = res.data.data.journeyVOList
-            console.log(this.data)
+            this.trainResultState = 'Result'
           }else{
             console.log('ERROR!')
             console.log(res.data.code)
+            this.trainResultState = 'No Result'
           }
         })
       },
       getBusResults(depart, arrival){
         this. busDepart = depart
         this.busArrival = arrival
+        this.busResultState = 'Chercher'
         API({
           url:'flixbus/getFlixbusTrips',
           method:'post',
@@ -81,9 +94,11 @@
         }).then((res)=>{
           if(res.data.ok){
             this.busData = res.data.data.flixbusTripBOs
+            this.busResultState = 'Result'
           }else{
             console.log('ERROR!')
             console.log(res.data.code)
+            this.busResultState = 'No Result'
           }
         })
       }
