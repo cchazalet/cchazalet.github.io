@@ -181,26 +181,26 @@ export default {
     },
     components: {
 
-        },
-        methods:{
-            searchIte(){
-                var reg1 = new RegExp('-', 'g')
-                this.$router.push({
-                    name: 'result',
-                    query: {
-                        'source': this.departure,
-                        'destination': this.arrival,
-                        'hour': this.time,
-                        'date': this.date.replace(reg1,''),
-                        'price': this.price,
-                        'duration': this.duration,
-                        'ecology': this.ecology,
-                        'date_': this.date
-                    }
-                })
-            }
-        },
-    }
+    },
+    methods:{
+        searchIte(){
+            var reg1 = new RegExp('-', 'g')
+            this.$router.push({
+                name: 'result',
+                query: {
+                    'source': this.departure,
+                    'destination': this.arrival,
+                    'hour': this.time,
+                    'date': this.date.replace(reg1,''),
+                    'price': this.price,
+                    'duration': this.duration,
+                    'ecology': this.ecology,
+                    'date_': this.date
+                }
+            })
+        }
+    },
+}
 
 </script>
 
