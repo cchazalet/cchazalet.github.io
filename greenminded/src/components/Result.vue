@@ -4,7 +4,7 @@
         Homepage > Results
       </LocationElement>
       <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
-      <h2>Train</h2>
+      <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination"></TrainSearchElement>
       <ResultListElement :result_list="data"></ResultListElement>
     </div>
   </template>
@@ -13,6 +13,7 @@
   import LocationElement from './Location.vue';
   import SearchCriteriaElement from './result_components/SearchCriteria.vue'
   import ResultListElement from './result_components/ResultList.vue';
+  import TrainSearchElement from './result_components/TrainSearch.vue';
   import API from '../plugins/axiosInstance'
 
   export default {
@@ -26,7 +27,8 @@
     components: {
       LocationElement,
       SearchCriteriaElement,
-      ResultListElement
+      ResultListElement,
+      TrainSearchElement,
     },
     mounted(){
 

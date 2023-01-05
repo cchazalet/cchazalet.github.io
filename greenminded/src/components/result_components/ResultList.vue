@@ -2,7 +2,7 @@
     <div id = "result_list">
         <div v-for="(item,index) in result_list" v-bind:key="index">
             <slot :data="item">
-                <ResultElement :values="item"></ResultElement>
+                <TrainResultElement :values="item"></TrainResultElement>
             </slot>
         </div>
     </div>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-    import ResultElement from './ResultElement.vue'
+    import TrainResultElement from './TrainResultElement.vue'
 
     export default {
         name: 'ResultListElement',
         components:{
-            ResultElement,
+            TrainResultElement,
         },
         data(){
             return{

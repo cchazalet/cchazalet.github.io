@@ -12,15 +12,21 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="form-group">
                                                 <label for="status">Departure</label>
-                                                <input type="text" placeholder="Enter A City" 
-                                                v-model="departure" class="form-control">
+                                                <input type="text" placeholder="Enter A City and Press Enter" 
+                                                v-model="departure" class="form-control" list="departList" @keydown.enter="searchDepartureCity">
+                                                <datalist id="departList">
+                                                    <option v-for="(item,index) in departureCityList" v-bind:key="index">{{item}}</option>
+                                                </datalist>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="form-group">
                                                 <label for="status">Arrival</label>
-                                                <input type="text" placeholder="Enter A City" 
-                                                v-model="arrival" class="form-control">
+                                                <input type="text" placeholder="Enter A City and Press Enter" 
+                                                v-model="arrival" class="form-control" list="arriveList" @keydown.enter="searchArrivalCity">
+                                                <datalist id="arriveList">
+                                                    <option v-for="(item,index) in arrivalCityList" v-bind:key="index">{{item}}</option>
+                                                </datalist>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -101,7 +107,7 @@
 </template>
 
 <script>
-    // import API from '../../plugins/axiosInstance'
+    import API from '../../plugins/axiosInstance'
 
     export default{
         name: 'SearchElement',
@@ -114,6 +120,8 @@
                 price: 0,
                 duration: 0,
                 ecology: 0,
+                departureCityList: [],
+                arrivalCityList:[]
             }
         },
         components:{
@@ -134,8 +142,44 @@
                         'ecology': this.ecology,
                     }
                 })
-            }
-        },
+            },
+            searchDepartureCity(){        
+                console.log('call function searchDepartureCity')
+                API({
+                    url:'/journey/getCityGare',
+                    method:'post',
+                    data: {
+                        city: this.departure
+                    }
+                }).then((res)=>{
+                    if (res.data.ok){
+                        this.departureCityList = res.data.data.gareList
+                        console.log(this.departureCityList)
+                    }else{
+                        console.log('ERROR!')
+                        console.log(res.data.code)
+                    }
+                })
+            },
+            searchArrivalCity(){       
+                console.log('call function searchArrivalCity') 
+                API({
+                    url:'/journey/getCityGare',
+                    method:'post',
+                    data: {
+                        city: this.arrival
+                    }
+                }).then((res)=>{
+                    if (res.data.ok){
+                        this.arrivalCityList = res.data.data.gareList
+                        console.log(this.arrivalCityList)
+                    }else{
+                        console.log('ERROR!')
+                        console.log(res.data.code)
+                    }
+                })
+            },
+        }
     }
 
 </script>

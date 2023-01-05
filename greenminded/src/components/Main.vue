@@ -3,7 +3,6 @@
       <LocationElement>
         Homepage
       </LocationElement>
-      <h2>Main</h2>
       <SearchElement></SearchElement>
       <div>
         <!-- <router-view></router-view>
