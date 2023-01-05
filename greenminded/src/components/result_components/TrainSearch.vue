@@ -10,11 +10,12 @@
             </datalist>
         </div>
         <div class="search_element">
-            <input type="text" placeholder="Choose A Station" v-model="arrival" list="departList">
+            <input type="text" placeholder="Choose A Station" v-model="arrival" list="arrivalList">
             <datalist id="arrivalList">
                 <option v-for="(item, index) in arrivalCityList" v-bind:key="index">{{item}}</option>
             </datalist>
         </div>
+        <button @click="searchTrain">CHERCHER</button>
     </div>
 
 </template>
@@ -35,12 +36,43 @@
                 arrivalCityList:[],
             }
         },
-        props:{
-            departure_city: String,
-            arrival_city: String,
-        },
+        props:['departure_city','arrival_city','getTrainResults'],
         methods:{
-
+            searchDepartureCity(){
+                API({
+                    url:'/journey/getCityGare',
+                    method:'post',
+                    data:{
+                        city:this.departure_city
+                    }
+                }).then((res)=>{
+                    if(res.data.ok){
+                        this.departureCityList = res.data.data.gareList
+                    }else{
+                        console.log('ERROR!')
+                        console.log(res.data.code)
+                    }
+                })
+            },
+            searchArrivalCity(){
+                API({
+                    url:'/journey/getCityGare',
+                    method:'post',
+                    data:{
+                        city:this.arrival_city
+                    }
+                }).then((res)=>{
+                    if(res.data.ok){
+                        this.arrivalCityList = res.data.data.gareList
+                    }else{
+                        console.log('ERROR!')
+                        console.log(res.data.code)
+                    }
+                })
+            },
+            searchTrain(){
+                this.getTrainResults(this.departure, this.arrival)
+            }
         },
         mounted(){
             API({
@@ -72,6 +104,7 @@
                     console.log(res.data.code)
                 }
             })
+
         }
     }
 </script>

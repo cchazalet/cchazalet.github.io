@@ -4,7 +4,8 @@
         Homepage > Results
       </LocationElement>
       <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
-      <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination"></TrainSearchElement>
+      <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination" 
+                          :getTrainResults="getTrainResults"></TrainSearchElement>
       <ResultListElement :result_list="data"></ResultListElement>
     </div>
   </template>
@@ -32,31 +33,29 @@
     },
     mounted(){
 
-      API({
-        url:'/journey/getJourneyInfo',
-        method:'post',
-        data: {
-          date: this.searchCriteria.date,
-          destination: this.searchCriteria.destination,
-          //destination: 'Paris-Gare-de-Lyon',
-          hour: parseInt(this.searchCriteria.hour.slice(0,2)),
-          source: this.searchCriteria.source,
-          //source: 'Lyon-Part-Dieu'
-        }
-      }).then((res)=>{
-        if (res.data.ok){
-          this.data = res.data.data.journeyVOList
-          console.log(this.data)
-        }else{
-          console.log('ERROR!')
-          console.log(res.data.code)
-        }
-      })
-
       
     },
     methods:{
-
+      getTrainResults(depart, arrival){
+        API({
+          url:'/journey/getJourneyInfo',
+          method:'post',
+          data: {
+            date: this.searchCriteria.date,
+            destination: arrival,
+            hour: parseInt(this.searchCriteria.hour.slice(0,2)),
+            source: depart,
+          }
+        }).then((res)=>{
+          if (res.data.ok){
+            this.data = res.data.data.journeyVOList
+            console.log(this.data)
+          }else{
+            console.log('ERROR!')
+            console.log(res.data.code)
+          }
+        })
+      }
     }
   }
   </script>
