@@ -132,6 +132,7 @@
                         'price': this.price,
                         'duration': this.duration,
                         'ecology': this.ecology,
+                        'date_': this.date
                     }
                 })
             }
