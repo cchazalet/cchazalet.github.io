@@ -13,6 +13,7 @@ const fs = require("fs");
     await execa("rm", ["-r", "../docs"]);
     await execa("mv", ["dist", "../docs"]);
     await execa("git", ["add", "../greenminded", "--all"]);
+    await execa("git", ["add", "../docs", "--all"]);
     await execa("git", ["commit", "-m", "gh-pages"]);
     console.log("Pushing to gh-pages...");
     await execa("git", ["push", "origin", "HEAD:gh-pages", "--force"]);
