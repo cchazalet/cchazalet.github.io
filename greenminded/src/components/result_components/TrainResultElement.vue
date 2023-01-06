@@ -4,7 +4,7 @@
             <div class="col-sm-1">
                 <img src="../../../img/Logo_SNCF_2011.svg.png" class="logo-transport-type">
             </div>
-            <div class="col-sm-11">
+            <div class="col-sm-10">
                 <div class="sub_element">
                     <label for="status" class="label_type">Departure:</label>
                     {{ values.source }}
@@ -30,6 +30,10 @@
                     {{ values.duration }} min
                 </div>
             </div>
+            
+            <div class="col-sm-1">
+                <h4>{{ values.prix }}€</h4>
+            </div>
         </div>
     </div>
 </template>
@@ -54,14 +58,15 @@ export default {
 
 <style scoped>
 #result_element {
-    border-color: #81b622;
-    border-radius: 5px;
-    border-style: groove;
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    padding-left: 5%;
+  border-color: #81b622;
+  border-radius: 5px;
+  border-style: groove;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  padding-left: 1%;
+  width: auto;
 }
 
 .sub_element {

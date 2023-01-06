@@ -112,6 +112,11 @@
 </script>
 
 <style scoped>
+
+    .bus_search{
+        position: relative;
+        width: 100%;
+    }
     .title_element{
         display:inline-block;
         width: 20%;

@@ -4,27 +4,24 @@
         Homepage > Results
       </LocationElement>
       <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
-
-      <div class="colon-div-60">
-        <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination" 
-                          :getTrainResults="getTrainResults"></TrainSearchElement>
-        <p v-if="trainResultState ==='Null'">Choisir les stations pour CHERCHER</p>
-        <p v-else-if="trainResultState === 'Chercher'">Recherche En Cours</p>
-        <ResultListElement v-else-if="trainResultState === 'Result'" :result_list="trainData"></ResultListElement>
-        <p v-else>Aucun Resultat</p>
-
-
-        <BusSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination"
-                          :getBusResults="getBusResults"></BusSearchElement>
-        <p v-if="busResultState ==='Null'">Choisir les stations pour CHERCHER</p>
-        <p v-else-if="busResultState === 'Chercher'">Recherche En Cours</p>
-        <BusResultListElement v-else-if="busResultState === 'Result'" :result_list="busData" :bus_depart="busDepart" :bus_arrival="busArrival"></BusResultListElement>
-        <p v-else>Aucun Resultat</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination" 
+                            :getTrainResults="getTrainResults"></TrainSearchElement>
+          <p v-if="trainResultState ==='Null'">Choisir les stations pour CHERCHER</p>
+          <p v-else-if="trainResultState === 'Chercher'">Recherche En Cours</p>
+          <ResultListElement v-else-if="trainResultState === 'Result'" :result_list="trainData"></ResultListElement>
+          <p v-else>Aucun Resultat</p>
+        </div>
+        <div class="col-lg-6">
+          <BusSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination"
+                            :getBusResults="getBusResults"></BusSearchElement>
+          <p v-if="busResultState ==='Null'">Choisir les stations pour CHERCHER</p>
+          <p v-else-if="busResultState === 'Chercher'">Recherche En Cours</p>
+          <BusResultListElement v-else-if="busResultState === 'Result'" :result_list="busData" :bus_depart="busDepart" :bus_arrival="busArrival"></BusResultListElement>
+          <p v-else>Aucun Resultat</p>
+        </div>
       </div>
-      <div class="colon-div-40">
-        <p>Hello</p>
-      </div>
-
 
     </div>
   </template>
@@ -115,15 +112,4 @@
   </script>
   
   <style scoped>
-    .colon-div-60{
-      width:60%;
-      min-width: 200px;
-      display: inline-block;
-    }
-
-    .colon-div-40{
-      width:40%;
-      min-width: 200px;
-      display: inline-block;
-    }
   </style>

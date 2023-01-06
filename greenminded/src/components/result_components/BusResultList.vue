@@ -1,5 +1,5 @@
 <template>
-    <div id = "result_list">
+    <div id = "resultlist">
         <div v-for="(item,index) in result_list" v-bind:key="index">
             <slot :data="item">
                 <BusResultElement :values="item" :depart="bus_depart" :arrival="bus_arrival"></BusResultElement>
@@ -31,5 +31,4 @@
 </script>
 
 <style scoped>
-
 </style>
