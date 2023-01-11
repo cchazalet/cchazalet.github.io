@@ -18,11 +18,14 @@
         </div>        
         <div class="single-controler">
             <div class="col-md-3 row controler-label">
-                <label for="status">Ecologie</label>
+                <label for="status">Price</label>
             </div>
             <div class="col-md-6 row">
                 <input type="range" min="0" max="10" v-model="ecology" class="form-control">
             </div>
+        </div>
+        <div class = "d-grid gap-2 div-margin col-md-9">
+            <input name="submit" value="Search" class="buton btn btn-success btn-lg btn-block wrn-btn" type="submit" @click="sortResult"/>
         </div>
     </div>
 </template>
@@ -34,12 +37,23 @@ export default{
     },
     data(){
         return{
-            duration: 5,
-            co2: 5,
-            ecology: 5,
+            duration: 5.,
+            co2: 5.,
+            ecology: 5.,
 
         }
-    }
+    },
+    props:['saveSortParameters'],
+    methods:{
+        sortResult(){
+            try{
+                this.saveSortParameters(this.duration,this.co2,this.ecology)
+            }catch(e){
+                console.log(e)
+            }
+            
+        }
+    },
 }
 </script>
 <style scoped>
@@ -71,12 +85,6 @@ export default{
         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     }
-/* 
-    input[type=range]::-webkit-slider-runnable-track {
-        height: 15px;
-        border-radius: 10px;
-        box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
-    } */
 
     input[type=range]::-webkit-slider-thumb{
         -webkit-appearance:none;
@@ -93,6 +101,10 @@ export default{
     [type="range"i]::-webkit-slider-container{
         height:20px;
         overflow:hidden;
+    }
+    
+    .div-margin{
+        padding: 10px;
     }
 
 </style>

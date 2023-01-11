@@ -32,7 +32,7 @@
             </div>
             
             <div class="col-sm-1">
-                <h4>{{ values.prix }}€</h4>
+                <p>{{ values.prix }}€</p>
             </div>
         </div>
     </div>

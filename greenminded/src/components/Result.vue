@@ -23,8 +23,7 @@
         </div>
       </div>
       <div class="column">
-        <OptControlerVue></OptControlerVue>
-        <RankResultListVue :proportion_duration="prop_duration" :proportion_co2="prop_co2" :proportion_ecologie="prop_ecologie"></RankResultListVue>
+        <RankResultListVue :trainData="trainData" :busData="busData" :departure_city="busDepart" :arrival_city="busArrival"></RankResultListVue>
       </div>
     </div>
   </template>
@@ -36,7 +35,6 @@
   import TrainSearchElement from './result_components/TrainSearch.vue';
   import BusSearchElement from './result_components/BusSearch.vue';
   import BusResultListElement from './result_components/BusResultList.vue';
-  import OptControlerVue from './result_components/OptControler.vue';
   import RankResultListVue from './result_components/RankResultList.vue';
   import API from '../plugins/axiosInstance';
 
@@ -51,11 +49,6 @@
         busArrival: this.busArrival,
         trainResultState: 'Null',
         busResultState: 'Null',
-
-        // Ctrl of calculation
-        prop_duration: 0.,
-        prop_co2: 0.,
-        prop_ecology: 0.,
       }
     },
     components: {
@@ -65,7 +58,6 @@
       TrainSearchElement,
       BusSearchElement,
       BusResultListElement,
-      OptControlerVue,
       RankResultListVue,
     },
     mounted(){
@@ -118,7 +110,7 @@
             this.busResultState = 'No Result'
           }
         })
-      }
+      },
     }
   }
   </script>
