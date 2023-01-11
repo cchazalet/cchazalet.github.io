@@ -4,8 +4,8 @@
         Homepage > Results
       </LocationElement>
       <SearchCriteriaElement :msg="searchCriteria"></SearchCriteriaElement>
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="column">
+        <div class="col-lg-12">
           <TrainSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination" 
                             :getTrainResults="getTrainResults"></TrainSearchElement>
           <p v-if="trainResultState ==='Null'">Choisir les stations pour CHERCHER</p>
@@ -13,7 +13,7 @@
           <ResultListElement v-else-if="trainResultState === 'Result'" :result_list="trainData"></ResultListElement>
           <p v-else>Aucun Resultat</p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <BusSearchElement :departure_city="searchCriteria.source" :arrival_city="searchCriteria.destination"
                             :getBusResults="getBusResults"></BusSearchElement>
           <p v-if="busResultState ==='Null'">Choisir les stations pour CHERCHER</p>
@@ -22,7 +22,10 @@
           <p v-else>Aucun Resultat</p>
         </div>
       </div>
-
+      <div class="column">
+        <OptControlerVue></OptControlerVue>
+        <RankResultListVue :proportion_duration="prop_duration" :proportion_co2="prop_co2" :proportion_ecologie="prop_ecologie"></RankResultListVue>
+      </div>
     </div>
   </template>
   
@@ -33,6 +36,8 @@
   import TrainSearchElement from './result_components/TrainSearch.vue';
   import BusSearchElement from './result_components/BusSearch.vue';
   import BusResultListElement from './result_components/BusResultList.vue';
+  import OptControlerVue from './result_components/OptControler.vue';
+  import RankResultListVue from './result_components/RankResultList.vue';
   import API from '../plugins/axiosInstance';
 
   export default {
@@ -46,6 +51,11 @@
         busArrival: this.busArrival,
         trainResultState: 'Null',
         busResultState: 'Null',
+
+        // Ctrl of calculation
+        prop_duration: 0.,
+        prop_co2: 0.,
+        prop_ecology: 0.,
       }
     },
     components: {
@@ -55,6 +65,8 @@
       TrainSearchElement,
       BusSearchElement,
       BusResultListElement,
+      OptControlerVue,
+      RankResultListVue,
     },
     mounted(){
 
@@ -112,4 +124,10 @@
   </script>
   
   <style scoped>
+    .column{
+      width: 50%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    
   </style>

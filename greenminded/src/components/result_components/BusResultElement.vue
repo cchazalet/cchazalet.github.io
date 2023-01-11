@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="col-sm-1">
-        <h4>{{ values.price }}€</h4>
+        <p>{{ values.price }}€</p>
       </div>
     </div>
   </div>
@@ -88,4 +88,5 @@ export default {
   width: 100%;
   max-width: 80px;
 }
+
 </style>
