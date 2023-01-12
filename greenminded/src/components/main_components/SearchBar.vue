@@ -33,12 +33,6 @@
               @click="searchIte()"
             />
           </div>
-          <div class="col-lg-1 col-md-3 col-sm-12 p-0">
-            <button class="button">
-              <i class="loading-icon fa fa-spinner fa-spin hide"></i>
-              <span class="btn-txt">Fetch Data from Server</span>
-            </button>
-          </div>
         </div>
       </div>
     </form>
