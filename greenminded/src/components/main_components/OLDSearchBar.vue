@@ -37,12 +37,14 @@
       </div>
     </form>
   </section>
-  <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP</AlertElement>
+  <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal"
+    >Remplir tous les critères SVP</AlertElement
+  >
 </template>
 
 <script>
 // import API from '../../plugins/axiosInstance'
-import AlertElement from '../Alert.vue'
+import AlertElement from "../Alert.vue";
 import $ from "jquery";
 export default {
   name: "SearchBar",
@@ -59,14 +61,19 @@ export default {
     };
   },
   components: {
-    AlertElement
+    AlertElement,
   },
   methods: {
     searchIte() {
-      if (this.departure == '' || this.arrival == '' || this.date == '' || this.time == ''){
+      if (
+        this.departure == "" ||
+        this.arrival == "" ||
+        this.date == "" ||
+        this.time == ""
+      ) {
         //console.log(this.departure=='', this.arrival=='')
-        this.showAlert = true
-      }else{
+        this.showAlert = true;
+      } else {
         $(".result").text("");
         $(".loading-icon").removeClass("hide");
         $(".button").attr("disabled", true);
@@ -82,15 +89,14 @@ export default {
             price: this.price,
             duration: this.duration,
             ecology: this.ecology,
-            date_: this.date
+            date_: this.date,
           },
         });
       }
     },
-    hideModal(){
-      this.showAlert = false
-    }
-
+    hideModal() {
+      this.showAlert = false;
+    },
   },
   mounted() {
     $(document).ready(function () {
