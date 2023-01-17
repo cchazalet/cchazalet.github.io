@@ -28,51 +28,7 @@
 						</div> <!-- end .row -->
 						<button type="submit" class="button">Search places</button>
 					</form>
-					<div class="highlight-slider-wrapper">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2">
-								<p class="lead">Or browse the highlights</p>
-								<div class="highlight-slider">
-									<div class="item">
-										<a href="" class="icon">
-											<img src="../../assets/images/highlight-food.png" alt="food">
-											<div class="overlay">Food</div>
-										</a> <!-- end .icon -->
-									</div> <!-- end .item -->
-									<div class="item">
-										<a href="" class="icon">
-											<img src="../../assets/images/highlight-lodging.png" alt="lodging">
-											<div class="overlay">Lodging</div>
-										</a> <!-- end .icon -->
-									</div> <!-- end .item -->
-									<div class="item">
-										<a href="" class="icon">
-											<img src="../../assets/images/highlight-culture.png" alt="culture">
-											<div class="overlay">Culture</div>
-										</a> <!-- end .icon -->
-									</div> <!-- end .item -->
-									<div class="item">
-										<a href="" class="icon">
-											<img src="../../assets/images/highlight-shopping.png" alt="shopping">
-											<div class="overlay">Shopping</div>
-										</a> <!-- end .icon -->
-									</div> <!-- end .item -->
-									<div class="item">
-										<a href="" class="icon">
-											<img src="../../assets/images/highlight-nightlife.png" alt="nightlife">
-											<div class="overlay">Nightlife</div>
-										</a> <!-- end .icon -->
-									</div> <!-- end .item -->
-									<div class="item">
-										<a href="" class="icon">
-											<img src="../../assets/images/highlight-drink.png" alt="drink">
-											<div class="overlay">Drink</div>
-										</a> <!-- end .icon -->
-									</div> <!-- end .item -->
-								</div> <!-- end .highlight-slider -->
-							</div> <!-- end .col-md-8 -->
-						</div> <!-- end .row -->
-					</div> <!-- end .highlight-slider-wrapper -->
+					<!-- images  -->
 				</div> <!-- end .container -->
 			</div> <!-- end .inner -->
 		</div> <!-- end .section -->
