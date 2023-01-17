@@ -1,7 +1,75 @@
 /* Ecrire pour le projet greenminded */
 @font-face {
     font-family: 'Quicksand Dash';
-    src: url('../fonts/Quicksand_Dash.otf');
+    src: url('../fonts/quicksand-dash/quicksand_dash-webfont.woff');
     font-size: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Quicksand Dash';
+    src: url('../fonts/quicksand-dash/quicksand_dash-webfont.woff2');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'glyphicons-half';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'glyphicons-half';
+    src: url('../fonts/glyphicons-halflings-regular.ttf');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'glyphicons-half';
+    src: url('../fonts/glyphicons-halflings-regular.woff');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pe-icon';
+    src: url('../fonts/pe-icon-social/fonts/pe-icon-social.eot');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pe-icon';
+    src: url('../fonts/pe-icon-social/fonts/pe-icon-social.woff');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pe-icon7';
+    src: url('../fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pe-icon7';
+    src: url('../fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.woff');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'awesome';
+    src: url('../fonts/font-awesome/fonts/fontawesome-webfont.eot');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'awesome';
+    src: url('../fonts/font-awesome/fonts/fontawesome-webfont.ttf');
+    font-size: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'awesome';
+    src: url('../fonts/font-awesome/fonts/fontawesome-webfont.woff');
+    font-size: normal;
+    font-style: normal;
+}
+
+
