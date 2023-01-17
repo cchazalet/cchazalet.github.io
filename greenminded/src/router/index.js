@@ -1,6 +1,6 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import Result from '../components/Result'
-import Main from '../components/Main'
+import Main from '../new_components/Main'
 
 const routes = [
     {
