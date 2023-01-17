@@ -53,6 +53,7 @@ export default{
 			arrival:'',
 			date:'',
 			time:'',
+			showAlert:false,
 		}
 
 
@@ -68,10 +69,6 @@ export default{
         console.log(this.departure=='', this.arrival=='')
         this.showAlert = true;
       } else {
-        // $(".result").text("");
-        // $(".loading-icon").removeClass("hide");
-        // $(".button").attr("disabled", true);
-        // $(".btn-txt").text("Fetching Data From Server...");
         var reg1 = new RegExp("-", "g");
         this.$router.push({
           name: "result",
@@ -80,9 +77,6 @@ export default{
             destination: this.arrival,
             hour: this.time,
             date: this.date.replace(reg1, ""),
-            price: this.price,
-            duration: this.duration,
-            ecology: this.ecology,
             date_: this.date,
           },
         });
