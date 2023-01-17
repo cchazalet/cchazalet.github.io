@@ -1,6 +1,12 @@
 <template>
     <div class="fullscreen-section">
-        <LeftSection></LeftSection>
+        <LeftSection
+            :departureSNCFCityList="departureSNCFCityList" 
+            :arrivalSNCFCityList="arrivalSNCFCityList" 
+            :departureFlixbusCityList="departureFlixbusCityList" 
+            :arrivalFlixbusCityList="arrivalFlixbusCityList"
+            :searchCriteria="searchCriteria"
+        ></LeftSection>
 		<RightSection 
             :departureSNCFCityList="departureSNCFCityList" 
             :arrivalSNCFCityList="arrivalSNCFCityList" 

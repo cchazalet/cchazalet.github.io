@@ -16,7 +16,7 @@
                         <label for="status">CO2</label>
                     </div>
                     <div class="col-md-9 set_row">
-                        <input type="range" min="0" max="10" v-model="co2" class="form-control">
+                        <input type="range" min="0" max="10" v-model="ecology" class="form-control">
                     </div>
                 </div>        
                 <div class="single-controler">
@@ -24,7 +24,7 @@
                         <label for="status">Price</label>
                     </div>
                     <div class="col-md-9 set_row">
-                        <input type="range" min="0" max="10" v-model="ecology" class="form-control">
+                        <input type="range" min="0" max="10" v-model="price" class="form-control">
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <select>
+                                <select v-model="departSNCF">
                                     <option v-for="(item, index) in departureSNCFCityList" v-bind:key="index">
                                         {{ item }}
                                     </option>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <select>
+                                <select v-model="arriveSNCF">
                                     <option v-for="(item, index) in arrivalSNCFCityList" v-bind:key="index">
                                         {{ item }}
                                     </option>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <select>
+                                <select v-model="departFlixbus">
                                     <option v-for="(item, index) in departureFlixbusCityList" v-bind:key="index">
                                         {{ item }}
                                     </option>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <select>
+                                <select v-model="arriveFlixbus">
                                     <option v-for="(item, index) in arrivalFlixbusCityList" v-bind:key="index">
                                         {{ item }}
                                     </option>
@@ -89,8 +89,11 @@
                             </div>
                         </div> <!-- end .col-sm-4 -->
                     </div>
-
                 </form>
+                <div class="col-sm-12 button-div">
+                    <button type="submit" class="button-long" >Search places</button>
+                </div>
+                
             </div> <!-- end .directory-filters -->
 
             <div class="directory-tags">
@@ -185,7 +188,19 @@ export default{
     props:["departureSNCFCityList",
         "arrivalSNCFCityList",
         "departureFlixbusCityList",
-        "arrivalFlixbusCityList"]
+        "arrivalFlixbusCityList"],
+    data(){
+        return{
+            duration:5,
+            ecology:5,
+            price:5,
+
+            departSNCF:'',
+            arriveSNCF:'',
+            departFlixbus:'',
+            arriveFlixbus:'',
+        }
+    }
 }
 </script>
 
@@ -240,4 +255,32 @@ export default{
         padding: 10px;
     }
 
+    .button-long {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 48px;
+        padding-left: 50px;
+        padding-right: 50px;
+        display: inline-block;
+        -webkit-transition: .25s;
+        -ms-transition: .25s;
+        -moz-transition: .25s;
+        -o-transition: .25s;
+        transition: .25s;
+        position: relative;
+        outline: none !important;
+        border: none;
+        background: #172434;
+        color: #fff;
+        border-radius: 48px;
+        text-transform: uppercase;
+        box-shadow: 0 12px 22px rgba(0,0,0,.35);
+        letter-spacing: 1.6px;
+    }
+
+    .button-div{
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 </style>
