@@ -1,8 +1,8 @@
 <template>
   <div id="main">
     <LocationElement> Homepage </LocationElement>
-    <SearchBar></SearchBar>
-    <CarousselSlides></CarousselSlides>
+    <!--<SearchBar></SearchBar>-->
+    <CarousselQuicksearch></CarousselQuicksearch>
     <div>
       <!-- <router-view></router-view>
         <router-link to="{path:'/result', push:{key:'value'}}">Result</router-link> -->
@@ -13,16 +13,15 @@
 
 <script>
 import LocationElement from "./Location.vue";
-import SearchBar from "./main_components/SearchBar.vue";
-import CarousselSlides from "./main_components/CarousselSlides.vue";
+//import SearchBar from "./main_components/SearchBar.vue";
+import CarousselQuicksearch from "./main_components/CarousselQuicksearch.vue";
 //import API from "../plugins/axiosInstance"
 
 export default {
   name: "MainPage",
   components: {
     LocationElement,
-    SearchBar,
-    CarousselSlides,
+    CarousselQuicksearch,
   },
   methods: {},
 };
