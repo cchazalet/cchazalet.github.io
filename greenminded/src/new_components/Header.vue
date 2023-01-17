@@ -1,9 +1,8 @@
 <template>
 		<header class="header clearfix">
 			<div class="left">
-				<div class="logo"><a href="index.html"><img src="../assets/images/logo.png" alt="ExploreCity" class="img-responsive"></a></div> <!-- end .logo -->
+				<div class="logo"><a href="index.html"><img src="../../img/logo.png" alt="ExploreCity" class="img-responsive"></a></div> <!-- end .logo -->
 				<form class="header-search">
-					<input type="text" placeholder="I’m searching for ...">
 					<button type="submit"><i class="pe-7s-search"></i></button>
 				</form>
 			</div> <!-- end .left -->

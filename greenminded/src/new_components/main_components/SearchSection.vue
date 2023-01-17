@@ -1,6 +1,5 @@
 <template>
-
-        <div id = 'main' class="section large transparent dark text-center" style="background-image: url('background01');">
+        <div id = 'main' class="section large transparent dark text-center" style="background-image: url('../../assets/images/background01.jpg');">
 			<div class="inner">
 				<div class="container">
 					<h1>Discover The City Gems</h1>
