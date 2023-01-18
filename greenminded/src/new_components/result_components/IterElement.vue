@@ -84,7 +84,7 @@ export default{
     color: #000;
     width: 35%;
     font-weight: 1000;
-    font-size: medium;
+    font-size: small;
     font-style: oblique;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     white-space: nowrap;
@@ -104,6 +104,9 @@ export default{
     max-width: 80px;
   }
 
+  .row{
+    font-size: small;
+  }
 
 
 </style>
