@@ -44,7 +44,7 @@
 
                             </div> <!-- end .form-group -->
                         </div> <!-- end .col-sm-4 -->
-
+                        
                         <button type="submit" class="button" @click="uploadBlog()">Upload</button>
                     </form>
                     <!-- images  -->
@@ -95,10 +95,12 @@ export default {
                             contenue: this.contenue,
                             username: this.username,
                             title: this.title,
+                            image: Math.floor(Math.random() * 9 + 1)
                         }
                     }).then((res) => {
                         console.log(res.status)
                     });
+                    this.$router.push('/blogPage');
                 }
             },
             hideModal() {

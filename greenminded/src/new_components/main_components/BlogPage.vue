@@ -64,6 +64,11 @@ export default{
 	components:{
         BlogAffichage
     },
+	watch: {
+		$route () { 
+			this.getLastestBlog()
+		}
+	},
 	data(){
 		return{
 			lastestBlogList:[]
@@ -83,14 +88,13 @@ export default{
 				if (res.data.ok){
 					res.data.data.forEach((element)=>{
 						this.lastestBlogList.push({
-							imageAddress: Math.round(Math.random()*10),
+							image: element.image,
 							username: element.username,
 							nombreDeLikes: element.nombreDeLikes,
 							city: element.city,
 							title: element.title,
 							date: element.date.slice(0,10)       
 						})
-						console.log(this.lastestBlogList)
 					})
                 }else{
                     // console.log('ERROR!')

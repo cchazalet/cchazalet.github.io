@@ -18,14 +18,12 @@ export default{
     name: 'blogAffichageVue',
     data(){
         return {
-            
         }
     },
     methods: {
         getImgUrl() {
-            var num = Math.floor(Math.random() * 9 + 1);
-            console.log(num)
-            var url = require(`@/assets/images/blog-post0` + num + `.jpg`)
+            console.log(this.values.image)
+            var url = require(`@/assets/images/blog-post0` + this.values.image + `.jpg`)
             return url
         }
     },

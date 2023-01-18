@@ -60,11 +60,11 @@
           <li class="menu-item-has-children">
             <router-link :to="{ path: '/blogpage' }">Blog</router-link>
             <ul>
-              <li><a href="blog.html">Blog</a></li>
+              <!-- <li><a href="blog.html">Blog</a></li>
               <li><a href="#">Blog Post</a></li>
               <li><a href="#">Blog Post Video</a></li>
               <li><a href="#">Blog Post Gallery</a></li>
-              <li><a href="#">Blog Post Quote</a></li>
+              <li><a href="#">Blog Post Quote</a></li> -->
             </ul>
           </li>
         </ul>
