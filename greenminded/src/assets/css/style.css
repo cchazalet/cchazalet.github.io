@@ -80,7 +80,7 @@ a img:hover {
 	opacity: .9;
 }
 p {
-	margin-bottom: 50px;
+	margin-bottom: 0;
 }
 p.no-margin-bottom {
 	margin-bottom: 0;
@@ -137,7 +137,7 @@ h4 {
 	line-height: 28px;
 	color: #172434;
 	margin: 0;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	letter-spacing: 0;
 }
 h5 {

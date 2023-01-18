@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-10">
           <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-7">
               
               <label for="depart" class="label_type">Departure: </label>
               {{values.depart }}
@@ -22,7 +22,7 @@
               <label for="status" class="label_type">Arrival:</label>
               {{ values.arrival }}
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-7">
               <label for="status" class="label_type">Departure Time:</label>
               {{ values.departTime }}
             </div>
@@ -30,7 +30,7 @@
               <label for="status" class="label_type">Arrival Time:</label>
               {{ values.arrivalTime }}
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-7">
               <label for="status" class="label_type">CO2 Emission:</label>
               {{ values.co2Emission }} g
             </div>
@@ -87,6 +87,7 @@ export default{
     font-size: medium;
     font-style: oblique;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    white-space: nowrap;
   }
   .text_type{
     color: #000;
@@ -102,5 +103,7 @@ export default{
     width: 100%;
     max-width: 80px;
   }
+
+
 
 </style>
