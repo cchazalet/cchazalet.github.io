@@ -13,27 +13,28 @@
         </div>
         <div class="col-sm-10">
           <div class="row">
-            <div class="col-sm-6">
-              <label for="status" class="label_type">Departure:</label>
-              {{ values.depart }}
+            <div class="col-sm-5">
+              
+              <label for="depart" class="label_type">Departure: </label>
+              {{values.depart }}
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <label for="status" class="label_type">Arrival:</label>
               {{ values.arrival }}
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <label for="status" class="label_type">Departure Time:</label>
               {{ values.departTime }}
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <label for="status" class="label_type">Arrival Time:</label>
               {{ values.arrivalTime }}
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <label for="status" class="label_type">CO2 Emission:</label>
               {{ values.co2Emission }} g
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <label for="status" class="label_type">Duration:</label>
               {{ values.duration }} min
             </div>
@@ -80,8 +81,18 @@ export default{
   }
   
   .label_type {
+    color: #000;
     width: 35%;
-    font-weight: 200;
+    font-weight: 1000;
+    font-size: medium;
+    font-style: oblique;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  .text_type{
+    color: #000;
+    width: 35%;
+    font-weight: 1000;
+    font-size: small;
     font-style: oblique;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }

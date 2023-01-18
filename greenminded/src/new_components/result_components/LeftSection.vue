@@ -266,4 +266,4 @@ export default{
         padding: 50px;
         width: 800px;
     }
-</style>{{trafficSNCFList}}
+</style>

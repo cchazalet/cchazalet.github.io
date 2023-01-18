@@ -20,116 +20,92 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Title" v-model="departure">
+                                    <input type="text" placeholder="Title" v-model="title">
                                 </div> <!-- end .form-group -->
                             </div> <!-- end .col-sm-4 -->
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Author" v-model="arrival">
+                                    <input type="text" placeholder="Author" v-model="username">
                                     <i class="pe-7s-world"></i>
                                 </div> <!-- end .form-group -->
                             </div> <!-- end .col-sm-4 -->
                             <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" placeholder="City" v-model="city">
+                                    <i class="pe-7s-world"></i>
+                                </div> <!-- end .form-group -->
+                            </div> <!-- end .col-sm-4 -->
 
-
-                                <el-upload v-model:file-list="fileList" class="upload-demo"
-                                    action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15" multiple
-                                    :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove"
-                                    :limit="3" :on-exceed="handleExceed">
-                                    <el-button type="primary">Click to upload</el-button>
-                                    <template #tip>
-                                        <div class="el-upload__tip">
-                                            jpg/png files with a size less than 500KB.
-                                        </div>
-                                    </template>
-                                </el-upload>
-
-
-                            </div>
                         </div>
+                        <div class="col-sm-13">
+                            <div class="form-group">
+                                <textarea class="textarea2" type="text" placeholder="Content"
+                                    v-model="contenue"></textarea>
 
-                        <button type="submit" class="button" @click="searchIte()">Search places</button>
+                            </div> <!-- end .form-group -->
+                        </div> <!-- end .col-sm-4 -->
+
+                        <button type="submit" class="button" @click="uploadBlog()">Upload</button>
                     </form>
                     <!-- images  -->
                 </div> <!-- end .container -->
             </div> <!-- end .inner -->
         </div> <!-- end .section -->
-
-
-
-        <div class="section boxed-section light">
-            <div class="inner">
-                <div class="container">
-                    <div class="box transparent blog-grid">
-                        <div class="row">
-                            <div v-for="(item, index) in lastestBlogList.slice(0, 3)" v-bind:key="index">
-                                <slot :data="item">
-                                    <BlogAffichage :values="item"></BlogAffichage>
-                                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
-                                </slot>
-                            </div>
-                            <div v-for="(item, index) in lastestBlogList.slice(3, 6)" v-bind:key="index">
-                                <slot :data="item">
-                                    <BlogAffichage :values="item"></BlogAffichage>
-                                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
-                                </slot>
-                            </div>
-                            <div v-for="(item, index) in lastestBlogList.slice(6, 9)" v-bind:key="index">
-                                <slot :data="item">
-                                    <BlogAffichage :values="item"></BlogAffichage>
-                                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
-                                </slot>
-                            </div>
-                        </div> <!-- end .row -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP
+        </AlertElement>
     </div>
 </template>
 <script>
+
 import API from '@/plugins/axiosInstance'
+import AlertElement from '@/new_components/main_components/Alert.vue';
 // import BlogAffichage from './BlogAffichage.vue'
 export default {
     components: {
-        // BlogAffichage
+        AlertElement
     },
     data() {
         return {
-            lastestBlogList: []
+            title: '',
+            username: '',
+            city: '',
+            contenue: '',
+            showAlert: false,
         }
     },
     mounted() {
-        this.getLastestBlog()
     },
     methods: {
-        getLastestBlog() {
-            API({
-                url: '/blog/getLatestBlog',
-                method: 'post',
-                data: {
+        uploadBlog() {
+            if (
+                this.city == "" ||
+                this.contenue == "" ||
+                this.username == "" ||
+                this.title == ""
+            ) {
+                console.log(this.departure == '', this.arrival == '')
+                this.showAlert = true;
+            } else {
+                
+                    API({
+                        url: '/blog/upload',
+                        method: 'post',
+                        data: {
+                            city: this.city,
+                            contenue: this.contenue,
+                            username: this.username,
+                            title: this.title,
+                        }
+                    }).then((res) => {
+                        console.log(res.status)
+                    });
                 }
-            }).then((res) => {
-                if (res.data.ok) {
-                    res.data.data.forEach((element) => {
-                        this.lastestBlogList.push({
-                            imageAddress: "img/blog-post05.jpg",
-                            username: element.username,
-                            nombreDeLikes: element.nombreDeLikes,
-                            city: element.city,
-                            date: element.date.slice(0, 10)
-                        })
-                        console.log(this.lastestBlogList)
-                    })
-                } else {
-                    // console.log('ERROR!')
-                    // console.log(res.data.code)
-                }
-            })
-        },
+            },
+            hideModal() {
+                this.showAlert = false;
+            }
+        }
     }
-}
 
 </script>
 <style>
@@ -173,6 +149,19 @@ input[readonly] {
 
 .custom-file-input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.textarea2 {
+    padding: 10px;
+    width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgb(51, 11, 122);
+    max-lines: 100;
+    height: 300px;
+    resize: none;
+    line-height-step: 1px;
 }
 </style>
 
