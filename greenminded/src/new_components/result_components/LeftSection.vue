@@ -75,6 +75,9 @@ export default{
                 // console.log(newVal.sncf,this.oldSettingParams.sncf, newVal.flixbus,this.oldSettingParams.flixbus,newVal.criterias,this.oldSettingParams.criterias)
                 if (newVal.sncf.departSNCF != this.oldSettingParams.sncf.departSNCF 
                     || newVal.sncf.arriveSNCF != this.oldSettingParams.sncf.arriveSNCF){
+                        this.trafficSNCFList = [],
+                        this.trafficDataList = [],
+                        this.trafficDataList_noPrice = [],
                     console.log('setting parameters of sncf stations')
                     this.getSNCFResults(newVal.sncf.departSNCF, newVal.sncf.arriveSNCF)
                     this.oldSettingParams.sncf.departSNCF =newVal.sncf.departSNCF
@@ -84,6 +87,9 @@ export default{
                 if (newVal.flixbus.departFlixbus != this.oldSettingParams.flixbus.departFlixbus 
                     || newVal.flixbus.arriveFlixbus != this.oldSettingParams.flixbus.arriveFlixbus){
                     console.log('setting parameters of flixbus stations')
+                    this.trafficSNCFList = [],
+                    this.trafficDataList = [],
+                    this.trafficDataList_noPrice = [],
                     this.getFlixbusResults(newVal.flixbus.departFlixbus, newVal.flixbus.arriveFlixbus)
                     this.oldSettingParams.flixbus.departFlixbus = newVal.flixbus.departFlixbus
                     this.oldSettingParams.flixbus.arriveFlixbus = newVal.flixbus.arriveFlixbus

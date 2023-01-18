@@ -1,7 +1,7 @@
 <template>
     <div id="result_element">
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 addwidth">
           <img v-if="values.type === 'Flixbus'"
             src="../../../img/1280px-Flixbus_201x_logo.svg.png"
             class="logo-transport-type"
@@ -11,38 +11,35 @@
             class="logo-transport-type"
           /> 
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 norightpadding">
           <div class="row">
-            <div class="col-sm-5">
-              
+            <div class="col-sm-5 addrightpadding">
               <label for="depart" class="label_type">Departure: </label>
-              <p>{{values.depart }}</p>
-
+              <p class="text_type">{{values.depart }}</p>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 addrightpadding">
               <label for="status" class="label_type">Arrival:</label>
-              <p>{{ values.arrival }}</p>
+              <p class="text_type">{{ values.arrival }}</p>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 addrightpadding">
               <label for="status" class="label_type">Departure Time:</label>
-              <p>{{ values.departTime }}</p>
+              <p class="text_type">{{ values.departTime }}</p>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 addrightpadding">
               <label for="status" class="label_type">Arrival Time:</label>
-              <p>{{ values.arrivalTime }}</p>
+              <p class="text_type">{{ values.arrivalTime }}</p>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 addrightpadding2">
               <label for="status" class="label_type">CO2 Emission:</label>
-              <p>{{ values.co2Emission }} gCO2e</p>
+              <p class="text_type">{{ values.co2Emission }} gCO2e</p>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 addrightpadding2">
               <label for="status" class="label_type">Duration:</label>
-              <p>{{ values.duration }} min</p>
+              <p class="text_type">{{ values.duration }} min</p>
             </div>
-            {{ values.msg }}
           </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 noleftpadding">
           <p>{{ values.economy }}€</p>
         </div>
       </div>
@@ -91,12 +88,12 @@ export default{
     white-space: nowrap;
   }
   .text_type{
-    color: #000;
+    color: rgb(10, 55, 55);
     width: 35%;
-    font-weight: 1000;
+    font-weight: 200;
     font-size: small;
-    font-style: oblique;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    white-space: nowrap;
   }
   
   .logo-transport-type {
@@ -107,6 +104,27 @@ export default{
 
   .row{
     font-size: small;
+  }
+  .addrightpadding{
+    width:50%;
+    margin-bottom: 10px;
+  }
+  .addrightpadding2{
+    width:50%;
+  }
+  .noleftpadding{
+    padding-left: 0px;
+  }
+  .norightpadding{
+    left: 20px;
+    line-height: 15px;
+    padding-right: 0px;
+  }
+  .addwidth{
+    padding-left: 20px;
+  }
+  .linepadding{
+    line-height: 14px;
   }
 
 
