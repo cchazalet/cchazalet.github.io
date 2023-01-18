@@ -1,7 +1,7 @@
 <template>
     <div id="result_element">
       <div class="row">
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <img v-if="values.type === 'Flixbus'"
             src="../../../img/1280px-Flixbus_201x_logo.svg.png"
             class="logo-transport-type"
@@ -11,37 +11,38 @@
             class="logo-transport-type"
           /> 
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-8">
           <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-5">
               
               <label for="depart" class="label_type">Departure: </label>
-              {{values.depart }}
+              <p>{{values.depart }}</p>
+
             </div>
             <div class="col-sm-5">
               <label for="status" class="label_type">Arrival:</label>
-              {{ values.arrival }}
+              <p>{{ values.arrival }}</p>
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-5">
               <label for="status" class="label_type">Departure Time:</label>
-              {{ values.departTime }}
+              <p>{{ values.departTime }}</p>
             </div>
             <div class="col-sm-5">
               <label for="status" class="label_type">Arrival Time:</label>
-              {{ values.arrivalTime }}
+              <p>{{ values.arrivalTime }}</p>
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-5">
               <label for="status" class="label_type">CO2 Emission:</label>
-              {{ values.co2Emission }} g
+              <p>{{ values.co2Emission }} gCO2e</p>
             </div>
             <div class="col-sm-5">
               <label for="status" class="label_type">Duration:</label>
-              {{ values.duration }} min
+              <p>{{ values.duration }} min</p>
             </div>
             {{ values.msg }}
           </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <p>{{ values.economy }}€</p>
         </div>
       </div>

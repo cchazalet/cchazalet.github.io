@@ -193,7 +193,6 @@ export default{
             this.trafficDataList.forEach((element)=>{
                 let score = Number(element.duration) / avg_duration * this.settingParams.criterias.duration + Number(element.economy) / avg_price * this.settingParams.criterias.price + Number(element.co2Emission) / avg_ecology * this.settingParams.criterias.ecology
                 element.score = score
-                console.log(score)
             })
 
             this.trafficDataList.sort(function(a,b){
