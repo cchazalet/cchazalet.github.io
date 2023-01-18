@@ -196,10 +196,10 @@ export default{
             ecology:5,
             price:5,
 
-            departSNCF:'--None--',
-            arriveSNCF:'--None--',
-            departFlixbus:'--None--',
-            arriveFlixbus:'--None--',
+            departSNCF:'',
+            arriveSNCF:'',
+            departFlixbus:'',
+            arriveFlixbus:'',
         }
     },
     methods:{

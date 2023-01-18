@@ -40,13 +40,19 @@ export default{
 
             // Setting Parameters
             settingParams:{
-                duration:5,
-                ecology:5,
-                price:5,
-                departSNCF:'--None--',
-                arriveSNCF:'--None--',
-                departFlixbus:'--None--',
-                arriveFlixbus:'--None--',
+                criterias:{
+                    duration:5,
+                    ecology:5,
+                    price:5,
+                },
+                sncf:{
+                    departSNCF:'',
+                    arriveSNCF:'',
+                },
+                flixbus:{
+                    departFlixbus:'',
+                    arriveFlixbus:'',
+                },
             }
 
         }
@@ -54,13 +60,16 @@ export default{
     methods:{
         saveSettingParams(duration, ecology, price,
             departSNCF, arriveSNCF, departFlixbus, arriveFlixbus){
-                this.settingParams.duration = duration
-                this.settingParams.ecology = ecology
-                this.settingParams.price = price
-                this.settingParams.departSNCF = departSNCF
-                this.settingParams.arriveSNCF = arriveSNCF
-                this.settingParams.departFlixbus = departFlixbus
-                this.settingParams.arriveFlixbus = arriveFlixbus
+                // console.log('..............')
+                this.settingParams.criterias.duration = duration
+                this.settingParams.criterias.ecology = ecology
+                this.settingParams.criterias.price = price
+                this.settingParams.sncf.departSNCF = departSNCF
+                this.settingParams.sncf.arriveSNCF = arriveSNCF
+                this.settingParams.flixbus.departFlixbus = departFlixbus
+                this.settingParams.flixbus.arriveFlixbus = arriveFlixbus
+                // console.log(this.settingParams)
+                // console.log('hi')
         }
     },
     mounted() {
@@ -73,7 +82,7 @@ export default{
         }).then((res) => {
             if (res.data.ok) {
                 this.departureSNCFCityList = res.data.data.gareList
-                this.departureSNCFCityList.unshift('--None--')
+                // this.departureSNCFCityList.unshift('--None--')
             } else {
                 console.log("ERROR!");
                 console.log(res.data.code);
@@ -89,7 +98,7 @@ export default{
         }).then((res) => {
             if (res.data.ok) {
                 this.arrivalSNCFCityList = res.data.data.gareList;
-                this.arrivalSNCFCityList.unshift('--None--')
+                //this.arrivalSNCFCityList.unshift('--None--')
             } else {
                 console.log("ERROR!");
                 console.log(res.data.code);
@@ -105,7 +114,7 @@ export default{
         }).then((res)=>{
             if(res.data.ok){
                 this.departureFlixbusCityList = res.data.data.cityStations
-                this.departureFlixbusCityList.unshift('--None--')
+                //this.departureFlixbusCityList.unshift('--None--')
             }else{
                 console.log('ERROR!')
                 console.log(res.data.code)
@@ -121,7 +130,7 @@ export default{
         }).then((res)=>{
             if(res.data.ok){
                 this.arrivalFlixbusCityList = res.data.data.cityStations
-                this.arrivalFlixbusCityList.unshift('--None--')
+                //this.arrivalFlixbusCityList.unshift('--None--')
             }else{
                 console.log('ERROR!')
                 console.log(res.data.code)
