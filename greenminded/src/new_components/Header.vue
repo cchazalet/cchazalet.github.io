@@ -12,7 +12,7 @@
 					<ul class="list-unstyled">
 						<li class="menu-item-has-children">
 							<a href="list.html">Explore</a>
-							<ul>
+							<!-- <ul>
 								<li><a href="list.html">All Listings</a></li>
 								<li class="menu-item-has-children">
 									<a href="list.html">Food & Drink<i class="pe-7s-right-arrow"></i></a>
@@ -24,11 +24,11 @@
 								</li>
 								<li><a href="list.html">Entertainment</a></li>
 								<li><a href="list.html">Nightlife</a></li>
-							</ul>
+							</ul> -->
 						</li>
 						<li class="menu-item-has-children">
 							<a href="index.html">Pages</a>
-							<ul>
+							<!-- <ul>
 								<li><a href="#">How It Works</a></li>
 								<li><a href="#">Add Listing</a></li>
 								<li><a href="#">Add Your Listing</a></li>
@@ -46,33 +46,24 @@
 								<li><a href="#">Maintenance</a></li>
 								<li><a href="#">Coming Soon</a></li>
 								<li><a href="#">404</a></li>
-							</ul>
+							</ul> -->
 						</li>
 						<li class="menu-item-has-children">
 							<a href="blog.html">Blog</a>
-							<ul>
+							<!-- <ul>
 								<li><a href="blog.html">Blog</a></li>
 								<li><a href="#">Blog Post</a></li>
 								<li><a href="#">Blog Post Video</a></li>
 								<li><a href="#">Blog Post Gallery</a></li>
 								<li><a href="#">Blog Post Quote</a></li>
-							</ul>
-						</li>
-						<li class="menu-item-has-children">
-							<a href="shop.html">Shop</a>
-							<ul>
-								<li><a href="shop.html">Shop</a></li>
-								<li><a href="shop-details.html">Shop Details</a></li>
-								<li><a href="shop-cart.html">Shop Cart</a></li>
-							</ul>
+							</ul> -->
 						</li>
 					</ul>
 				</nav> <!-- end .main-nav -->
 				<a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
 			</div> <!-- end .navigation -->
 			<div class="right">
-				<a href="" class="button border">Add Listing</a>
-				<a href="" class="button login-open">Log In</a>
+				<a href="/login" class="button login-open">Log In</a>
 			</div> <!-- end .left -->
 		</header> <!-- end .header -->
 </template>

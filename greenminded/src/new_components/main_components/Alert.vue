@@ -8,7 +8,7 @@
                 <slot></slot>
             </div>
             <div class="modal-footer">
-                <button @click="close">FERMER</button>
+                <button @click="close">Close</button>
             </div>
         </div>
     </div>

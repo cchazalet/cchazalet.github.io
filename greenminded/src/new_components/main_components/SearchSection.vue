@@ -1,4 +1,5 @@
 <template>
+	<!-- <div id = 'main' class="section large transparent dark text-center" style="{'background-image': `url(${require('/assets/image/file-icon.png')})`}"> -->
 	<div id = 'main' class="section large transparent dark text-center">
 		<div class="inner">
 			<div class="container">
@@ -37,9 +38,64 @@
 		</div> <!-- end .inner -->
 	</div> <!-- end .section -->
 	<AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP</AlertElement>
+	<div class="section dark">
+		<div class="inner">
+			<div class="container">
+				<h2 class="text-center">Share Your Experience<small>Browse the latest articles and tips from our blog.</small></h2>
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<div class="blog-post video">
+							<img src="../../assets/images/blog-post03.jpg" alt="image" class="img-responsive">
+							<div class="overlay"></div>
+							<div class="content">
+								<p>By Proin Mattis</p>
+								<h3><a href="">Nightlife at NewYork</a></h3>
+								<div class="meta">July 03, 2016 - <a href="">Nightlife</a></div>
+							</div> <!-- end .content -->
+						</div> <!-- end .blog-post -->
+					</div> <!-- end .col-md-4 -->
+				</div> <!-- end .row -->
+				<div class="blog-view-more"><a href="" class="button">View All</a></div>
+			</div> <!-- end .container -->
+		</div> <!-- end .inner -->
+	</div> <!-- end .section -->
+
+	<div class="section light transparent" style="background-image: url('images/background02.jpg');">
+		<div class="inner">
+			<div class="container">
+				<h2 class="text-center">How it Works<small>Discover how EXploreCity can you help you find everything you want.</small></h2>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="services">
+							<img src="../../assets/images/services-icon01.png" alt="icon" class="img-responsive center-block">
+							<h3>Choose<br>What To Do</h3>
+							<p>Looking for a cozy hotel to stay, a restaurant to eat, a museum to visit or a mall to do some shopping?</p>
+							<div class="process"><i class="pe-7s-angle-right-circle"></i></div>
+						</div> <!-- end .services -->
+					</div> <!-- end .col-sm-4 -->
+					<div class="col-sm-4">
+						<div class="services">
+							<img src="../../assets/images/services-icon02.png" alt="icon" class="img-responsive center-block">
+							<h3>Find<br>What You Want</h3>
+							<p>Search and filter hundreds of listings, read reviews, explore photos and find the perfect spot.</p>
+							<div class="process"><i class="pe-7s-angle-right-circle"></i></div>
+						</div> <!-- end .services -->
+					</div> <!-- end .col-sm-4 -->
+					<div class="col-sm-4">
+						<div class="services">
+							<img src="../../assets/images/services-icon03.png" alt="icon" class="img-responsive center-block">
+							<h3>Explore<br>Amazing Places</h3>
+							<p>Go and have a good time or even make a booking directly from the listing page. All of those, thanks to ExploreCity!</p>
+						</div> <!-- end .services -->
+					</div> <!-- end .col-sm-4 -->
+				</div> <!-- end .row -->
+			</div> <!-- end .container -->
+		</div> <!-- end .inner -->
+	</div> <!-- end .section -->
+	
 </template>
 <script>
-import AlertElement from '@/components/Alert.vue';
+import AlertElement from '@/new_components/main_components/Alert.vue';
 
 export default{
     name:'SearchSectionVue',
@@ -55,8 +111,6 @@ export default{
 			time:'',
 			showAlert:false,
 		}
-
-
 	},
 	methods: {
     searchIte() {
@@ -93,6 +147,6 @@ export default{
 </script>
 <style scoped>
 	.section {
-		background-image: url('@/assets/images/background01.jpg');
+		background-image: url('../../assets/images/background01.jpg');
 	}
 </style>

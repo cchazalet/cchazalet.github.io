@@ -1,5 +1,5 @@
 <template>
-        <footer class="footer">
+        <footer class="footer dark transparent">
 			<div class="top">
 				<div class="left">
 					<div class="logo"><a href="index.html"><img src="../../img/logo.png" alt="ExploreCity" class="img-responsive"></a></div> <!-- end .logo -->
