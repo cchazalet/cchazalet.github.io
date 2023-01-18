@@ -49,7 +49,7 @@
 							</ul> -->
 						</li>
 						<li class="menu-item-has-children">
-							<a href="blog.html">Blog</a>
+							<router-link :to="{path:'/blogpage'}">Blog</router-link>
 							<!-- <ul>
 								<li><a href="blog.html">Blog</a></li>
 								<li><a href="#">Blog Post</a></li>
@@ -63,7 +63,9 @@
 				<a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
 			</div> <!-- end .navigation -->
 			<div class="right">
-				<a href="/login" class="button login-open">Log In</a>
+				<router-link :to="{path:'/login'}"  class="button login-open">Log In</router-link>
+
+				<!-- <a href="/login" class="button login-open">Log In</a> -->
 			</div> <!-- end .left -->
 		</header> <!-- end .header -->
 </template>

@@ -1,5 +1,4 @@
 <template>
-    <div class="login-wrapper">
         <div class="login">
             <form>
                 <div class="form-group">
@@ -28,7 +27,6 @@
                 </div>
             </form>
         </div> <!-- end .login -->
-    </div> <!-- end .login-wrapper -->
 </template>
 
 <script>
