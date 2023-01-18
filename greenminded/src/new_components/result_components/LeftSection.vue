@@ -264,5 +264,6 @@ export default{
 
     .left{
         padding: 50px;
+        width: 800px;
     }
 </style>{{trafficSNCFList}}

@@ -1317,6 +1317,7 @@ select, .light-inputs select {
 }
 .fullscreen-section>.right {
 	display: table-cell;
+	/* display: inline-block; */
 	height: 100%;
 	width: 830px;
 	background: #f1f2f6;
