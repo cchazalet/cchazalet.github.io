@@ -91,6 +91,7 @@ export default{
 							image: element.image,
 							username: element.username,
 							nombreDeLikes: element.nombreDeLikes,
+							contenue: element.contenue, 
 							city: element.city,
 							title: element.title,
 							date: element.date.slice(0,10)       

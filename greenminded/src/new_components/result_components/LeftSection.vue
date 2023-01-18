@@ -6,7 +6,11 @@
             <div v-for="(item,index) in trafficDataList" v-bind:key="index">
                 <slot :data="item">
                     <IterElement :values="item"></IterElement>
-                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
+                </slot>
+            </div>
+            <div v-for="(item,index) in trafficDataList_noPrice" v-bind:key="index">
+                <slot :data="item">
+                    <IterElement :values="item"></IterElement>
                 </slot>
             </div>
         </div>
@@ -28,6 +32,7 @@ export default{
             trafficSNCFList:[],
             trafficFlixbusList:[],
             trafficDataList:[],
+            trafficDataList_noPrice:[],
 
 
             result_status:'begin',
@@ -175,9 +180,9 @@ export default{
             let dataLength = this.trafficDataList.length
 
             this.trafficDataList.forEach((element)=>{
-                avg_duration += element.duration
-                avg_ecology += element.co2Emission
-                avg_price += element.economy
+                avg_duration += Number(element.duration)
+                avg_ecology += Number(element.co2Emission)
+                avg_price += Number(element.economy)
             })
 
             avg_duration = avg_duration/dataLength
@@ -186,8 +191,9 @@ export default{
 
             // Calculate Score
             this.trafficDataList.forEach((element)=>{
-                let score = element.duration / avg_duration * this.settingParams.criterias.duration + Number(element.economy) / avg_price * this.settingParams.criterias.price + Number(element.co2Emission) / avg_ecology * this.settingParams.criterias.ecology
+                let score = Number(element.duration) / avg_duration * this.settingParams.criterias.duration + Number(element.economy) / avg_price * this.settingParams.criterias.price + Number(element.co2Emission) / avg_ecology * this.settingParams.criterias.ecology
                 element.score = score
+                console.log(score)
             })
 
             this.trafficDataList.sort(function(a,b){
@@ -200,32 +206,63 @@ export default{
         },
         
         transformSNCFData(element){
-            this.trafficDataList.push({
-                depart: element.source,
-                arrival: element.destination,
-                departTime: element.departureTime,
-                arrivalTime: element.arrivalTime,
-                co2Emission: element.co2Emission,
-                duration: element.duration,
-                economy: element.prix,
-                score: 0,
-                type:'SNCF',
-            })
+            if(element.prix == -1){
+                this.trafficDataList_noPrice.push({
+                    depart: element.source,
+                    arrival: element.destination,
+                    departTime: element.departureTime,
+                    arrivalTime: element.arrivalTime,
+                    co2Emission: element.co2Emission,
+                    duration: element.duration,
+                    economy: '--',
+                    score: 0,
+                    type:'SNCF',
+                })
+            }else{
+                this.trafficDataList.push({
+                    depart: element.source,
+                    arrival: element.destination,
+                    departTime: element.departureTime,
+                    arrivalTime: element.arrivalTime,
+                    co2Emission: element.co2Emission,
+                    duration: element.duration,
+                    economy: element.prix,
+                    score: 0,
+                    type:'SNCF',
+                })
+            }
+
             // console.log('push')
         },
         transformFlixbusData(element){
-            this.trafficDataList.push({
-                depart: this.settingParams.departFlixbus,
-                arrival: this.settingParams.arriveFlixbus,
-                departTime: element.depatureTime,
-                arrivalTime: element.arrivalTime,
-                co2Emission: 'unknown',
-                duration: element.duration,
-                economy: element.price,
-                msg: element.msg,
-                score: 0,
-                type:'Flixbus',                
-            })
+            if(element.price == -1){
+                this.trafficDataList_noPrice.push({
+                    depart: this.settingParams.flixbus.departFlixbus,
+                    arrival: this.settingParams.flixbus.arriveFlixbus,
+                    departTime: element.depatureTime,
+                    arrivalTime: element.arrivalTime,
+                    co2Emission: element.co2Emission,
+                    duration: this.transformHToMin(element.duration),
+                    economy: '--',
+                    msg: element.msg,
+                    score: 0,
+                    type:'Flixbus',                
+                })
+            }else{
+                this.trafficDataList.push({
+                    depart: this.settingParams.flixbus.departFlixbus,
+                    arrival: this.settingParams.flixbus.arriveFlixbus,
+                    departTime: element.depatureTime,
+                    arrivalTime: element.arrivalTime,
+                    co2Emission: element.co2Emission,
+                    duration: this.transformHToMin(element.duration),
+                    economy: element.price,
+                    msg: element.msg,
+                    score: 0,
+                    type:'Flixbus',                
+                })
+            }
+
         },
         transformHToMin(heure){
             let timePair = heure.split('h')
@@ -249,8 +286,10 @@ export default{
 
             if(this.trafficDataList!=[]){
                 this.calculateRank()
-            }else{
+            }else if(this.trafficDataList_noPrice!=[]){
                 this.result_status = 'none'
+            }else{
+                this.result_status = "done"
             }
 
         },

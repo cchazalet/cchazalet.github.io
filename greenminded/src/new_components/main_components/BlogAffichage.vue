@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 col-sm-6">
+    <div class="col-md-4 col-sm-6" @click="routeContent">
         <div class="blog-post image">
             <img :src="getImgUrl()" class="img-responsive">
             <div class="overlay"></div>
@@ -12,6 +12,7 @@
         </div> <!-- end .blog-post -->
     </div> <!-- end .col-md-4 -->
 </template>
+
 <script>
 
 export default{
@@ -25,7 +26,15 @@ export default{
             console.log(this.values.image)
             var url = require(`@/assets/images/blog-post0` + this.values.image + `.jpg`)
             return url
-        }
+        },
+        routeContent(){
+            this.$router.push({
+                name: "blog_content",
+                query: {
+
+                },
+            });
+        },
     },
     props:{
         values:{ String },

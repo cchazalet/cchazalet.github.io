@@ -4,6 +4,7 @@ import Main from '../new_components/Main'
 import Login from '@/new_components/main_components/Login'
 import BlogPage from '@/new_components/main_components/BlogPage'
 import CreateBlog from '@/new_components/main_components/CreateBlog'
+import BlogContenu from '@/new_components/main_components/BlogContenu'
 
 const routes = [
     {
@@ -29,6 +30,11 @@ const routes = [
         path: '/result/:query?',
         component: Result,
     },
+    {
+        name: 'blog_content',
+        path: '/blogpage/content',
+        component: BlogContenu,
+    }
 ]
 
 

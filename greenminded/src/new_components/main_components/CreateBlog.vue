@@ -51,9 +51,10 @@
                 </div> <!-- end .container -->
             </div> <!-- end .inner -->
         </div> <!-- end .section -->
-        <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP
-        </AlertElement>
+
     </div>
+    <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP
+    </AlertElement>
 </template>
 <script>
 
@@ -62,7 +63,7 @@ import AlertElement from '@/new_components/main_components/Alert.vue';
 // import BlogAffichage from './BlogAffichage.vue'
 export default {
     components: {
-        AlertElement
+        AlertElement,
     },
     data() {
         return {
@@ -87,27 +88,27 @@ export default {
                 this.showAlert = true;
             } else {
                 
-                    API({
-                        url: '/blog/upload',
-                        method: 'post',
-                        data: {
-                            city: this.city,
-                            contenue: this.contenue,
-                            username: this.username,
-                            title: this.title,
-                            image: Math.floor(Math.random() * 9 + 1)
-                        }
-                    }).then((res) => {
-                        console.log(res.status)
-                    });
-                    this.$router.push('/blogPage');
-                }
-            },
-            hideModal() {
-                this.showAlert = false;
+                API({
+                    url: '/blog/upload',
+                    method: 'post',
+                    data: {
+                        city: this.city,
+                        contenue: this.contenue,
+                        username: this.username,
+                        title: this.title,
+                        image: Math.floor(Math.random() * 9 + 1)
+                    }
+                }).then((res) => {
+                    console.log(res.status)
+                });
+                this.$router.push('/blogPage');
             }
+        },
+        hideModal() {
+            this.showAlert = false;
         }
     }
+}
 
 </script>
 <style>

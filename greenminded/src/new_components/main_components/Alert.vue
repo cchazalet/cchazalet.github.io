@@ -1,14 +1,14 @@
 <template>
     <div class="modal-bg" v-show="show">
         <div class="modal-container">
-            <div class="modal-header">
+            <!-- <div class="modal-header">
                 {{title}}
-            </div>
+            </div> -->
             <div class="modal-main">
                 <slot></slot>
             </div>
             <div class="modal-footer">
-                <button @click="close">Close</button>
+                <button class="button" @click="close">Close</button>
             </div>
         </div>
     </div>
@@ -61,13 +61,14 @@ export default{
         z-index: 999;
     }
     .modal-container{
-        border-radius: 8px;
+        border-radius: 21px;
         background: #fff;
     }
     .modal-header{
         height: 60px;
         background: #55595c;
         color: #fff;
+        border-radius: 20px;
     }
     .modal-main{
         padding: 20px 40px;
@@ -77,9 +78,12 @@ export default{
         display: flex;
         justify-content: center;
         align-items: center;
-        border-top: 1px solid #000;
+        /* border-top: 1px solid #000; */
+        border-top: 0;
     }
     .modal-footer button{
-        width: 100px;
+        /* width: 100px; */
+        box-shadow: none;
+
     }
 </style>
