@@ -263,6 +263,6 @@ export default{
 <style scoped>
 
     .left{
-        padding: 50px;
+        padding: 3px;
     }
 </style>{{trafficSNCFList}}

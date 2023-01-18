@@ -1318,7 +1318,7 @@ select, .light-inputs select {
 .fullscreen-section>.right {
 	display: table-cell;
 	height: 100%;
-	width: 830px;
+	width: 45%;
 	background: #f1f2f6;
 	vertical-align: top;
 }

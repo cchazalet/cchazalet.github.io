@@ -1,7 +1,6 @@
 <template>
     <div class="right">
         <div class="inner">
-
             <div id="option-controler">
                 <div class="single-controler">
                     <div class="col-md-3 set_row controler-label">
