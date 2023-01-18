@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 col-sm-6" @click="routeContent">
+    <div class="col-md-4 col-sm-6" @click="showThisBlog">
         <div class="blog-post image">
             <img :src="getImgUrl()" class="img-responsive">
             <div class="overlay"></div>
@@ -11,6 +11,7 @@
             </div> <!-- end .content -->
         </div> <!-- end .blog-post -->
     </div> <!-- end .col-md-4 -->
+    
 </template>
 
 <script>
@@ -19,7 +20,11 @@ export default{
     name: 'blogAffichageVue',
     data(){
         return {
+            isShowBlog:false,
         }
+    },
+    components:{
+
     },
     methods: {
         getImgUrl() {
@@ -27,17 +32,17 @@ export default{
             var url = require(`@/assets/images/blog-post0` + this.values.image + `.jpg`)
             return url
         },
-        routeContent(){
-            this.$router.push({
-                name: "blog_content",
-                query: {
-
-                },
-            });
-        },
+        showThisBlog(){
+            this.showBlog(this.values)
+        }
     },
     props:{
-        values:{ String },
+        values:{ 
+            type:Object,
+        },
+        showBlog:{
+            type:Function,
+        }
     }
 }
 </script>

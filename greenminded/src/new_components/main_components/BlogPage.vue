@@ -33,19 +33,19 @@
 						<div class="row">
 							<div v-for="(item,index) in lastestBlogList.slice(0, 3)" v-bind:key="index">
 								<slot :data="item">
-									<BlogAffichage :values="item"></BlogAffichage>
+									<BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
 									<!-- <TrainResultElement :values="item"></TrainResultElement> -->
 								</slot>
 							</div>
 							<div v-for="(item,index) in lastestBlogList.slice(3, 6)" v-bind:key="index">
 								<slot :data="item">
-									<BlogAffichage :values="item"></BlogAffichage>
+									<BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
 									<!-- <TrainResultElement :values="item"></TrainResultElement> -->
 								</slot>
 							</div>
 							<div v-for="(item,index) in lastestBlogList.slice(6, 9)" v-bind:key="index">
 								<slot :data="item">
-									<BlogAffichage :values="item"></BlogAffichage>
+									<BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
 									<!-- <TrainResultElement :values="item"></TrainResultElement> -->
 								</slot>
 							</div>
@@ -53,16 +53,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-                            
+        </div>                  
     </div>
+	<BlogContenu :values="blogContent" :show="isShowBlog" :hideBlog="hideBlog"></BlogContenu>
 </template>
 <script>
 import API from '@/plugins/axiosInstance'
 import BlogAffichage from './BlogAffichage.vue'
+import BlogContenu from './BlogContenu.vue'
 export default{
 	components:{
-        BlogAffichage
+        BlogAffichage,
+		BlogContenu,
     },
 	watch: {
 		$route () { 
@@ -71,19 +73,21 @@ export default{
 	},
 	data(){
 		return{
-			lastestBlogList:[]
+			lastestBlogList:[],
+			isShowBlog:false,
+			blogContent:this.blogContent,
 		}
 	},
 	mounted(){
         this.getLastestBlog()
     },
-   methods: {
-    getLastestBlog(){
-            API({
-                url:'/blog/getLatestBlog',
-                method:'post',
-                data: {
-                }
+	methods: {
+		getLastestBlog(){
+			API({
+				url:'/blog/getLatestBlog',
+				method:'post',
+				data: {
+				}
 			}).then((res)=>{
 				if (res.data.ok){
 					res.data.data.forEach((element)=>{
@@ -97,13 +101,21 @@ export default{
 							date: element.date.slice(0,10)       
 						})
 					})
-                }else{
-                    // console.log('ERROR!')
-                    // console.log(res.data.code)
-                }
-            })
+				}else{
+					// console.log('ERROR!')
+					// console.log(res.data.code)
+				}
+			})
+		},
+		showBlog(content){
+            this.isShowBlog = true
+			this.blogContent = content
         },
-   }
+        hideBlog(){
+            this.isShowBlog = false
+        },
+
+	}
 }
 
 </script>
