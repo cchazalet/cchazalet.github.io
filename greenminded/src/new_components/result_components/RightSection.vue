@@ -1,55 +1,58 @@
 <template>
   <div class="right">
     <div class="inner">
-      <div id="option-controler">
-        <div class="single-controler">
-          <div class="col-md-3 set_row controler-label">
-            <label for="status">Durée</label>
+      <div class="option-controler">
+        <form>
+          <div class="single-controler">
+            <div class="col-md-3 set_row controler-label">
+              <label for="status">Durée</label>
+            </div>
+            <div class="col-md-9 set_row">
+              <input
+                type="range"
+                min="0"
+                max="10"
+                v-model="duration"
+                class="form-control"
+              />
+            </div>
           </div>
-          <div class="col-md-9 set_row">
-            <input
-              type="range"
-              min="0"
-              max="10"
-              v-model="duration"
-              class="form-control"
-            />
+          <div class="single-controler">
+            <div class="col-md-3 set_row controler-label">
+              <label for="status">Ecologie (CO2)</label>
+            </div>
+            <div class="col-md-9 set_row">
+              <input
+                type="range"
+                min="0"
+                max="10"
+                v-model="ecology"
+                class="form-control"
+              />
+            </div>
           </div>
-        </div>
-        <div class="single-controler">
-          <div class="col-md-3 set_row controler-label">
-            <label for="status">Ecologie (CO2)</label>
+          <div class="single-controler">
+            <div class="col-md-3 set_row controler-label">
+              <label for="status">Prix</label>
+            </div>
+            <div class="col-md-9 set_row">
+              <input
+                type="range"
+                min="0"
+                max="10"
+                v-model="price"
+                class="form-control"
+              />
+            </div>
           </div>
-          <div class="col-md-9 set_row">
-            <input
-              type="range"
-              min="0"
-              max="10"
-              v-model="ecology"
-              class="form-control"
-            />
-          </div>
-        </div>
-        <div class="single-controler">
-          <div class="col-md-3 set_row controler-label">
-            <label for="status">Prix</label>
-          </div>
-          <div class="col-md-9 set_row">
-            <input
-              type="range"
-              min="0"
-              max="10"
-              v-model="price"
-              class="form-control"
-            />
-          </div>
-        </div>
+        </form>
       </div>
+
 
       <div class="directory-filters">
         <form>
           <div class="sncf-title">
-            <p>Gare SNCF :</p>
+            <h4>Gare SNCF :</h4>
           </div>
           <div class="sncf-stations row">
             <div class="col-sm-2">
@@ -86,7 +89,7 @@
             <!-- end .col-sm-4 -->
           </div>
           <div class="sncf-title">
-            <p>Gare Flixbus:</p>
+            <h4>Gare Flixbus:</h4>
           </div>
           <div class="flixbus-stations row">
             <div class="col-sm-2">
@@ -349,13 +352,28 @@ export default {
 </script>
 
 <style scoped>
+/* .option-controler{
+  height:150px;
+} */
+.single-controler{
+  min-height: 50px;
+  margin-bottom: 10px;
+  white-space:nowrap;
+  vertical-align: top;
+}
+.right{
+  min-width: 700px;
+  max-width:max-content;
+}
 .set_row {
   display: inline-block;
   align-content: center;
 }
 
 .controler-label {
-  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 0 5px;
+  vertical-align: middle;
 }
 
 .form-control {
@@ -368,7 +386,7 @@ export default {
   color: #fff;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);
@@ -387,13 +405,17 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: #172434;
   border: 1px solid transparent;
   margin-top: 0px;
-  border-image: linear-gradient(#172434, #172434) 0 fill / 8 20 8 0 / 0 0 0 520; /*绘制元素外矩形*/
+  border-image: linear-gradient(#172434, #172434) 0 fill / 8 20 8 0 / 0 0 0 520;
 }
 
-[type="range"i]::-webkit-slider-container {
+label{
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* [type="range"i]::-webkit-slider-container {
   height: 20px;
   overflow: hidden;
-}
+} */
 
 .div-margin {
   padding: 10px;
@@ -427,4 +449,9 @@ input[type="range"]::-webkit-slider-thumb {
   text-align: center;
   margin-bottom: 20px;
 }
+
+.sncf-stations .flixbus-stations{
+  vertical-align: middle;
+}
+
 </style>
