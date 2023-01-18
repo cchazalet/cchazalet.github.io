@@ -1,5 +1,5 @@
 <template>
-		<header class="header fixed clearfix">
+		<header class="header clearfix">
 			<div class="left">
 				<div class="logo"><a href="index.html"><img src="../../img/logo.png" alt="ExploreCity" class="img-responsive"></a></div> <!-- end .logo -->
 				<form class="header-search">
