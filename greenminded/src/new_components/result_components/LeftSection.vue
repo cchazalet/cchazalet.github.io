@@ -4,26 +4,29 @@
         <div v-else-if="result_status=='sncf'">Searching for SNCF Voyages {{percent_sncf}}%</div>
         <div v-else-if="result_status=='flixbus'">Searching for Flixbus Voyages {{percent_flixbus}}%</div>
         <div v-else-if="result_status=='done'">
-            <div v-for="(item,index) in result_list" v-bind:key="index">
+            <div v-for="(item,index) in fakeDataList" v-bind:key="index">
                 <slot :data="item">
+                    <IterElement :values="item"></IterElement>
                     <!-- <TrainResultElement :values="item"></TrainResultElement> -->
                 </slot>
             </div>
         </div>
         <div v-else>No Result</div>
-        {{trafficDataList}}
+        <!-- {{trafficDataList}}
         {{trafficSNCFList}}
-        {{trafficFlixbusList}}
+        {{trafficFlixbusList}} -->
+        {{settingParams}}
 	</div> <!-- end .left -->
 </template>
 
 <script>
 import API from '@/plugins/axiosInstance'
+import IterElement from './IterElement.vue'
 
 export default{
     name:'LeftSectionVue',
     components:{
-
+        IterElement
     },
     data(){
         return{
@@ -32,21 +35,97 @@ export default{
             trafficDataList:[],
 
 
-            result_status:'search',
+            result_status:'done',
             percent_sncf:0,
-            percent_flixbus:0
+            percent_flixbus:0,
+
+            //fake information
+            fakeDataList:[
+                {
+                    depart: 'Lyon',
+                    arrival: 'Paris',
+                    departTime: 'depart time',
+                    arrivalTime: 'arrive time',
+                    co2Emission: 58,
+                    duration: 112,
+                    economy: 19,
+                    msg: 'msg',
+                    score: 0,
+                    type:'Flixbus',
+                },{
+                    depart: 'Lyon',
+                    arrival: 'Paris',
+                    departTime: 'depart time',
+                    arrivalTime: 'arrive time',
+                    co2Emission: 3,
+                    duration: 20,
+                    economy: 12,
+                    msg: 'msg',
+                    score: 0,
+                    type:'SNCF',
+                },
+                {
+                    depart: 'Lyon',
+                    arrival: 'Paris',
+                    departTime: 'depart time',
+                    arrivalTime: 'arrive time',
+                    co2Emission: 78,
+                    duration: 50,
+                    economy: 16,
+                    msg: 'msg',
+                    score: 0,
+                    type:'SNCF',
+                },
+
+  
+            ]
 
         }
 
 
     },
-    props:["departureSNCFCityList",
+    props:
+    // {
+    //     departureSNCFCityList:[String],
+    //     arrivalSNCFCityList:[String],
+    //     departureFlixbusCityList:[String],
+    //     arrivalFlixbusCityList:[String],
+    //     searchCriteria:{
+    //         source: String,
+    //         destination: String,
+    //         hour: String,
+    //         date: String,
+    //         date_: String,
+    //     },
+    //     settingParams:{
+    //         duration:Number,
+    //         ecology:Number,
+    //         price:Number,
+    //         departSNCF:String,
+    //         arriveSNCF:String,
+    //         departFlixbus:String,
+    //         arriveFlixbus:String,
+    //     },
+
+    // },
+    [
+        "departureSNCFCityList",
         "arrivalSNCFCityList",
         "departureFlixbusCityList",
         "arrivalFlixbusCityList",
-        "searchCriteria"],
+        "searchCriteria",
+        "settingParams",
+        ],
     watch:{
-        arrivalFlixbusCityList:'pseudo_mounted'
+        // arrivalFlixbusCityList:'pseudo_mounted',
+        //settingParams:'calculateRank',
+        settingParams:{
+            handler(){
+                this.calculateRank()
+            },
+            deep:true,
+
+        }
     },
     mounted(){
         console.log('mounted')     
@@ -94,6 +173,35 @@ export default{
 
             // this.combineData()
 
+
+        },
+        calculateRank(){
+            console.log('calculateRank')
+            // Calulate Average
+            let avg_duration = 0.
+            let avg_ecology = 0.
+            let avg_price = 0.
+            let dataLength = this.fakeDataList.length
+
+            this.fakeDataList.forEach((element)=>{
+                avg_duration += element.duration
+                avg_ecology += element.co2Emission
+                avg_price += element.economy
+            })
+
+            avg_duration = avg_duration/dataLength
+            avg_ecology = avg_ecology/dataLength
+            avg_price = avg_price/dataLength
+
+            // Calculate Score
+            this.fakeDataList.forEach((element)=>{
+                let score = element.duration / avg_duration * this.settingParams.duration + Number(element.economy) / avg_price * this.settingParams.price + Number(element.co2Emission) / avg_ecology * this.settingParams.ecology
+                element.score = score
+            })
+
+            this.fakeDataList.sort(function(a,b){
+                return a.score - b.score
+            })
 
         },
         getSNCFResults(depart, arrival,unit){

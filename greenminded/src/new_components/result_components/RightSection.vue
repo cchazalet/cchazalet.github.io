@@ -91,7 +91,7 @@
                     </div>
                 </form>
                 <div class="col-sm-12 button-div">
-                    <button type="submit" class="button-long" >Search places</button>
+                    <button type="submit" class="button-long" @click="transSettingParams">Search places</button>
                 </div>
                 
             </div> <!-- end .directory-filters -->
@@ -188,17 +188,24 @@ export default{
     props:["departureSNCFCityList",
         "arrivalSNCFCityList",
         "departureFlixbusCityList",
-        "arrivalFlixbusCityList"],
+        "arrivalFlixbusCityList",
+        "saveSettingParams"],
     data(){
         return{
             duration:5,
             ecology:5,
             price:5,
 
-            departSNCF:'',
-            arriveSNCF:'',
-            departFlixbus:'',
-            arriveFlixbus:'',
+            departSNCF:'--None--',
+            arriveSNCF:'--None--',
+            departFlixbus:'--None--',
+            arriveFlixbus:'--None--',
+        }
+    },
+    methods:{
+        transSettingParams(){
+            this.saveSettingParams(this.duration, this.ecology, this.price,
+                this.departSNCF, this.arriveSNCF, this.departFlixbus, this.arriveFlixbus)
         }
     }
 }
