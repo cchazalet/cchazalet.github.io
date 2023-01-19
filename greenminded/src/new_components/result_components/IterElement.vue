@@ -1,5 +1,5 @@
 <template>
-    <div id="result_element">
+    <div id="result_element" @click="openWindow">
       <div class="row">
         <div class="col-sm-2 addwidth">
           <img v-if="values.type === 'Flixbus'"
@@ -51,11 +51,25 @@ export default{
     name:'IterElementVue',
     components:{},
     data(){
-        return{}
+        return{
+        }
     },
     props:{
         values:{ String },
-    }
+    },
+    methods:{
+      openWindow(){
+        if (this.values.type == 'SNCF'){
+          window.open('https://www.sncf-connect.com/app/home/search','_blank');
+        }else if(this.values.type == 'Flixbus'){
+          window.open('https://www.flixbus.fr/','_blank');
+        }
+
+      },
+    },
+    mounted(){
+
+    },
 }
 
 </script>

@@ -1,7 +1,16 @@
 <template>
     <div class="left">
         <div v-if="result_status=='begin'">Choose your Criterias on the left</div>
-        <div v-else-if="result_status=='search'">Searching for Voyages</div>
+        <div v-else-if="result_status=='search'" class="search-bloc">
+            Searching for Voyages
+            <div class="middle">
+                <fulfilling-bouncing-circle-spinner
+                :animation-duration="4000"
+                :size="100"
+                color="#00b0ff"
+                />
+            </div>
+        </div>
         <div v-else-if="result_status=='done'">
             <div v-for="(item,index) in trafficDataList" v-bind:key="index">
                 <slot :data="item">
@@ -21,11 +30,13 @@
 <script>
 import API from '@/plugins/axiosInstance'
 import IterElement from './IterElement.vue'
+import { FulfillingBouncingCircleSpinner } from 'epic-spinners'
 
 export default{
     name:'LeftSectionVue',
     components:{
-        IterElement
+        IterElement,
+        FulfillingBouncingCircleSpinner,
     },
     data(){
         return{
@@ -75,7 +86,7 @@ export default{
                 // console.log(newVal.sncf,this.oldSettingParams.sncf, newVal.flixbus,this.oldSettingParams.flixbus,newVal.criterias,this.oldSettingParams.criterias)
                 if (newVal.sncf.departSNCF != this.oldSettingParams.sncf.departSNCF 
                     || newVal.sncf.arriveSNCF != this.oldSettingParams.sncf.arriveSNCF){
-                        this.trafficSNCFList = [],
+                        // this.trafficSNCFList = [],
                         this.trafficDataList = [],
                         this.trafficDataList_noPrice = [],
                     console.log('setting parameters of sncf stations')
@@ -87,7 +98,7 @@ export default{
                 if (newVal.flixbus.departFlixbus != this.oldSettingParams.flixbus.departFlixbus 
                     || newVal.flixbus.arriveFlixbus != this.oldSettingParams.flixbus.arriveFlixbus){
                     console.log('setting parameters of flixbus stations')
-                    this.trafficSNCFList = [],
+                    // this.trafficSNCFList = [],
                     this.trafficDataList = [],
                     this.trafficDataList_noPrice = [],
                     this.getFlixbusResults(newVal.flixbus.departFlixbus, newVal.flixbus.arriveFlixbus)
@@ -138,6 +149,7 @@ export default{
     methods:{
         getSNCFResults(depart, arrival){
             this.result_status = 'search'
+            // console.log(this.result_status)
             API({
                 url:'/journey/getJourneyInfo',
                 method:'post',
@@ -294,7 +306,7 @@ export default{
             }else if(this.trafficDataList_noPrice!=[]){
                 this.result_status = 'none'
             }else{
-                this.result_status = "done"
+               this.result_status = "done"
             }
 
         },
@@ -309,5 +321,20 @@ export default{
     .left{
         padding: 50px;
         /* width: 800px; */
+    }
+
+    .search-bloc{
+        vertical-align: middle;
+        width: fit-content;
+        text-align: center;
+        padding: 0 40%;
+    }
+
+    .middle{
+        width: 100%;
+        display: table-cell;
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 50px;
     }
 </style>
