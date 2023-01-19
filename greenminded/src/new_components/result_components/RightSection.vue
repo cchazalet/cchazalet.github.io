@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <div class="inner">
+    <div class="inner fullscreen">
       <div class="option-controler">
         <form>
           <div class="single-controler">
@@ -239,8 +239,12 @@ export default {
 /* .option-controler{
   height:150px;
 } */
-.inner{
+.inner {
   overflow-x: hidden;
+  overflow-y: visible;
+}
+.fullscreen-section>.right>.inner{
+  height: 100%;
 }
 .blog-grid {
   margin-top: 100px;
@@ -248,7 +252,6 @@ export default {
 
 .container {
   width: 153%;
-
 }
 .single-controler {
   min-height: 50px;
@@ -260,7 +263,6 @@ export default {
 .right {
   min-width: 700px;
   max-width: max-content;
-  ;
 }
 
 .set_row {
