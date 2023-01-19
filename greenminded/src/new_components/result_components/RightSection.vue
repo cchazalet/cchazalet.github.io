@@ -239,6 +239,9 @@ export default {
 /* .option-controler{
   height:150px;
 } */
+.box{
+  height: 500px;
+}
 .inner{
   overflow-x: hidden;
 }
