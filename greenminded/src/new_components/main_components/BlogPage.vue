@@ -14,11 +14,11 @@
 			<div class="inner">
 				<div class="boxed-section light">	
 					<el-button>
-						<router-link to="/createBlog" class="button">Create Your Own Blog</router-link>
+						<router-link to="/createBlog" class="button">Créez Votre Propre Blog</router-link>
 					</el-button>			
 				</div>
-				<h2>The Lattest Blog </h2>
-				<p>Accompany You To See The World</p>
+				<h2>Les Derniers Blogs </h2>
+				<p>Vous Accompagner Pour Voir Le Monde</p>
 				
 			</div> <!-- end .inner -->
 		</div> <!-- end .page-title -->

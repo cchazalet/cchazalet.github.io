@@ -14,7 +14,7 @@
         <div id='main' class="section large transparent dark text-center">
             <div class="inner">
                 <div class="container">
-                    <h1>Create Your Own Blog</h1>
+                    <h1>Créez Votre Propre Blog</h1>
                     <p class="lead">Share a better low-carbon life</p>
                     <form>
                         <div class="row">
