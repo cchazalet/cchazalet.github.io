@@ -15,7 +15,7 @@
             <div class="inner">
                 <div class="container">
                     <h1>Créez Votre Propre Blog</h1>
-                    <p class="lead">Share a better low-carbon life</p>
+                    <p class="lead">Partagez une meilleure vie à faible émission de carbone</p>
                     <form>
                         <div class="row">
                             <div class="col-sm-12">
