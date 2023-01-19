@@ -19,7 +19,7 @@
       <nav class="main-nav">
         <ul class="list-unstyled">
           <li class="menu-item-has-children">
-            <a href="list.html">Recherche</a>
+            <a href="/">Recherche</a>
             <!-- <ul>
 								<li><a href="list.html">All Listings</a></li>
 								<li class="menu-item-has-children">
