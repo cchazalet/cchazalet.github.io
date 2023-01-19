@@ -260,6 +260,7 @@
         background: rgba(255, 255, 255, .9);
         min-height: 500px;
         position: relative;
+        width:100%;
 
     }
 
