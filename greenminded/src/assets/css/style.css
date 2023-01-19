@@ -2133,6 +2133,7 @@ select, .light-inputs select {
 	background: #fff;
 	padding: 0 30px;
 	border-radius: 40px;
+	text-align: left;
 }
 .blog-post .type {
 	position: absolute;

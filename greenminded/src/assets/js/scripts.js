@@ -343,7 +343,7 @@
 
 	/*==========  Load more button  ==========*/
 	$(".blog-grid .row").hide();
-		$(".blog-grid .row").slice(0, 3).show();
+		$(".blog-grid .row").slice(0, 2).show();
 		$("#blog-load-more").on('click', function (e) {
 		e.preventDefault();
 		$(".blog-grid .row:hidden").slice(0, 1).slideDown();

@@ -67,7 +67,7 @@
           <div class="row">
             <div v-for="(item, index) in lastestBlogList.slice(0, 3)" v-bind:key="index">
               <slot :data="item">
-                <BlogAffichage :values="item"></BlogAffichage>
+                <BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
                 <!-- <TrainResultElement :values="item"></TrainResultElement> -->
               </slot>
             </div>
@@ -142,16 +142,21 @@
       <!-- end .inner -->
     </div>
     <!-- end .section -->
+    <BlogContenu :values="blogContent" :show="isShowBlog" :hideBlog="hideBlog"></BlogContenu>
+
 </template>
 <script>
 import AlertElement from "@/new_components/main_components/Alert.vue";
 import API from '@/plugins/axiosInstance'
 import BlogAffichage from './BlogAffichage.vue'
+import BlogContenu from './BlogContenu.vue'
+
 export default {
   name: "SearchSectionVue",
   components: {
     AlertElement,
-    BlogAffichage
+    BlogAffichage,
+    BlogContenu
   },
   data() {
     return {
@@ -160,6 +165,8 @@ export default {
       arrival: "",
       date: "",
       time: "",
+      isShowBlog:false,
+      blogContent:this.blogContent,
       showAlert: false,
       lastestBlogList: []
     };
@@ -179,6 +186,7 @@ export default {
 							username: element.username,
 							nombreDeLikes: element.nombreDeLikes,
 							city: element.city,
+              contenue: element.contenue, 
 							title: element.title,
 							date: element.date.slice(0,10)       
 						})
@@ -189,6 +197,13 @@ export default {
                     // console.log(res.data.code)
                 }
             })
+        },
+        showBlog(content){
+            this.isShowBlog = true
+            this.blogContent = content
+        },
+        hideBlog(){
+            this.isShowBlog = false
         },
     searchIte() {
       if (

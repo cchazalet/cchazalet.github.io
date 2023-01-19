@@ -14,6 +14,7 @@
             :departureFlixbusCityList="departureFlixbusCityList" 
             :arrivalFlixbusCityList="arrivalFlixbusCityList"
             :saveSettingParams="saveSettingParams"
+            :destination="searchCriteria.destination"
         ></RightSection>
 	</div> <!-- end .section -->
 </template>

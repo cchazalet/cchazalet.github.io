@@ -8,13 +8,7 @@
               <label for="status">Durée</label>
             </div>
             <div class="col-md-9 set_row">
-              <input
-                type="range"
-                min="0"
-                max="10"
-                v-model="duration"
-                class="form-control"
-              />
+              <input type="range" min="0" max="10" v-model="duration" class="form-control" />
             </div>
           </div>
           <div class="single-controler">
@@ -22,13 +16,7 @@
               <label for="status">Ecologie (CO2)</label>
             </div>
             <div class="col-md-9 set_row">
-              <input
-                type="range"
-                min="0"
-                max="10"
-                v-model="ecology"
-                class="form-control"
-              />
+              <input type="range" min="0" max="10" v-model="ecology" class="form-control" />
             </div>
           </div>
           <div class="single-controler">
@@ -36,13 +24,7 @@
               <label for="status">Prix</label>
             </div>
             <div class="col-md-9 set_row">
-              <input
-                type="range"
-                min="0"
-                max="10"
-                v-model="price"
-                class="form-control"
-              />
+              <input type="range" min="0" max="10" v-model="price" class="form-control" />
             </div>
           </div>
         </form>
@@ -61,10 +43,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <select v-model="departSNCF">
-                  <option
-                    v-for="(item, index) in departureSNCFCityList"
-                    v-bind:key="index"
-                  >
+                  <option v-for="(item, index) in departureSNCFCityList" v-bind:key="index">
                     {{ item }}
                   </option>
                 </select>
@@ -77,10 +56,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <select v-model="arriveSNCF">
-                  <option
-                    v-for="(item, index) in arrivalSNCFCityList"
-                    v-bind:key="index"
-                  >
+                  <option v-for="(item, index) in arrivalSNCFCityList" v-bind:key="index">
                     {{ item }}
                   </option>
                 </select>
@@ -98,10 +74,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <select v-model="departFlixbus">
-                  <option
-                    v-for="(item, index) in departureFlixbusCityList"
-                    v-bind:key="index"
-                  >
+                  <option v-for="(item, index) in departureFlixbusCityList" v-bind:key="index">
                     {{ item }}
                   </option>
                 </select>
@@ -114,10 +87,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <select v-model="arriveFlixbus">
-                  <option
-                    v-for="(item, index) in arrivalFlixbusCityList"
-                    v-bind:key="index"
-                  >
+                  <option v-for="(item, index) in arrivalFlixbusCityList" v-bind:key="index">
                     {{ item }}
                   </option>
                 </select>
@@ -132,210 +102,90 @@
           </button>
         </div>
       </div>
-      <!-- end .directory-filters -->
 
-      <!--<div class="directory-tags">
-                <div class="tag">Accepts Credit Cards<a href=""><i class="pe-7s-close"></i></a></div>
-                <div class="tag">Parking Street<a href=""><i class="pe-7s-close"></i></a></div>
-                <div class="tag">Wireless Internet<a href=""><i class="pe-7s-close"></i></a></div>
-            </div>
-            <div class="directory-list-info">
-                <p>Showing all Listings tagged "Accepts Credit Cards", "Parking Street", "Wireless Internet".</p>
-                <p class="results">79 Results - <a href="">Reset</a></p>
-            </div>-->
-      <div class="directory-list row">
-        <div class="col-sm-6">
-          <div class="directory-item">
-            <img
-              src="../../assets/images/directory-slider01.jpg"
-              alt="bg"
-              class="img-responsive"
-            />
-            <div class="overlay"></div>
-            <div class="rating">4.0</div>
-            <a href="" class="wishlist"
-              ><img
-                src="../../assets/images/directory-heart.png"
-                alt="wishlist"
-            /></a>
-            <div class="content">
-              <h3><a href="">Not Just Coffee</a></h3>
-              <p>Suspendisse tristique orci justo</p>
-              <div class="location">
-                <img
-                  src="../../assets/images/directory-location.png"
-                  alt="location"
-                />Thomas St , NewYork
+
+      <div class="box transparent blog-grid">
+        <div class="inner">
+          <div class="container">
+              <div class="row">
+                <div v-for="(item, index) in lastestBlogList.slice(0, 2)" v-bind:key="index">
+                  <slot :data="item">
+                    <BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
+                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
+                  </slot>
+                </div>
+                </div>
+                <div class="row">
+                <div v-for="(item, index) in lastestBlogList.slice(2, 4)" v-bind:key="index">
+                  <slot :data="item">
+                    <BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
+                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
+                  </slot>
+                </div>
               </div>
-            </div>
-            <!-- end .content -->
-            <div class="category">
-              <a href=""
-                ><img
-                  src="../../assets/images/directory-category-food.png"
-                  alt="food"
-              /></a>
-              <a href=""
-                ><img
-                  src="../../assets/images/directory-category-drink.png"
-                  alt="drink"
-              /></a>
-            </div>
-            <!-- end .category -->
+              <div class="row">
+                <div v-for="(item, index) in lastestBlogList.slice(4, 6)" v-bind:key="index">
+                  <slot :data="item">
+                    <BlogAffichage :values="item" :showBlog="showBlog"></BlogAffichage>
+                    <!-- <TrainResultElement :values="item"></TrainResultElement> -->
+                  </slot>
+                </div>
+              </div> <!-- end .row -->
           </div>
-          <!-- end .directory-item -->
         </div>
-        <!-- end .col-sm-6 -->
-        <div class="col-sm-6">
-          <div class="directory-item">
-            <img
-              src="../../assets/images/directory-slider02.jpg"
-              alt="bg"
-              class="img-responsive"
-            />
-            <div class="overlay"></div>
-            <div class="rating">4.0</div>
-            <a href="" class="wishlist"
-              ><img
-                src="../../assets/images/directory-heart.png"
-                alt="wishlist"
-            /></a>
-            <div class="content">
-              <h3><a href="">Nunc Restaurant</a></h3>
-              <p>Suspendisse tristique orci justo</p>
-              <div class="location">
-                <img
-                  src="../../assets/images/directory-location.png"
-                  alt="location"
-                />Leonard St , NewYork
-              </div>
-            </div>
-            <!-- end .content -->
-            <div class="category">
-              <a href=""
-                ><img
-                  src="../../assets/images/directory-category-dining.png"
-                  alt="dining"
-              /></a>
-              <a href=""
-                ><img
-                  src="../../assets/images/directory-category-wine.png"
-                  alt="wine"
-              /></a>
-            </div>
-            <!-- end .category -->
-          </div>
-          <!-- end .directory-item -->
-        </div>
-        <!-- end .col-sm-6 -->
-        <div class="col-sm-6">
-          <div class="directory-item">
-            <img
-              src="../../assets/images/directory-slider03.jpg"
-              alt="bg"
-              class="img-responsive"
-            />
-            <div class="overlay"></div>
-            <div class="rating">4.0</div>
-            <a href="" class="wishlist"
-              ><img
-                src="../../assets/images/directory-heart.png"
-                alt="wishlist"
-            /></a>
-            <div class="content">
-              <h3><a href="">DJ Party</a></h3>
-              <p>Suspendisse tristique orci justo</p>
-              <div class="location">
-                <img
-                  src="../../assets/images/directory-location.png"
-                  alt="location"
-                />Knightsbridge 66
-              </div>
-            </div>
-            <!-- end .content -->
-            <div class="category">
-              <a href=""
-                ><img
-                  src="../../assets/images/directory-category-party.png"
-                  alt="party"
-              /></a>
-            </div>
-            <!-- end .category -->
-          </div>
-          <!-- end .directory-item -->
-        </div>
-        <!-- end .col-sm-6 -->
-        <div class="col-sm-6">
-          <div class="directory-item">
-            <img
-              src="../../assets/images/directory-slider04.jpg"
-              alt="bg"
-              class="img-responsive"
-            />
-            <div class="overlay"></div>
-            <div class="rating">4.0</div>
-            <a href="" class="wishlist"
-              ><img
-                src="../../assets/images/directory-heart.png"
-                alt="wishlist"
-            /></a>
-            <div class="content">
-              <h3><a href="">Quisque Tinibus Hotel</a></h3>
-              <p>Suspendisse tristique orci justo</p>
-              <div class="location">
-                <img
-                  src="../../assets/images/directory-location.png"
-                  alt="location"
-                />Knightsbridge 66
-              </div>
-            </div>
-            <!-- end .content -->
-            <div class="category">
-              <a href=""
-                ><img
-                  src="../../assets/images/directory-category-hotel.png"
-                  alt="hotel"
-              /></a>
-            </div>
-            <!-- end .category -->
-          </div>
-          <!-- end .directory-item -->
-        </div>
-        <!-- end .col-sm-6 -->
       </div>
-      <!-- end .directory-list -->
+      <!-- end .directory-filters -->
     </div>
     <!-- end .inner -->
   </div>
   <!-- end .right -->
+  <BlogContenu :values="blogContent" :show="isShowBlog" :hideBlog="hideBlog"></BlogContenu>
+
 </template>
 
 <script>
 // import OptControler from '@/components/result_components/OptControler.vue';
-
+import API from '@/plugins/axiosInstance'
+import BlogAffichage from '../main_components/BlogAffichage.vue'
+import BlogContenu from '../main_components/BlogContenu.vue'
 export default {
   name: "RightSectionVue",
-  components: {},
+  components: {
+    BlogAffichage,
+		BlogContenu,
+  },
+  mounted(){
+    this.getCityLatestBlog()
+  },
   props: [
     "departureSNCFCityList",
     "arrivalSNCFCityList",
     "departureFlixbusCityList",
     "arrivalFlixbusCityList",
     "saveSettingParams",
+    "destination"
   ],
   data() {
     return {
       duration: 5,
       ecology: 5,
       price: 5,
-
+      lastestBlogList:[],
       departSNCF: "",
       arriveSNCF: "",
       departFlixbus: "",
       arriveFlixbus: "",
+      isShowBlog:false,
+      blogContent:this.blogContent,
     };
   },
+  watch: {
+		$route () { 
+			this.getCityLatestBlog()
+		},
+  },
   methods: {
+
     transSettingParams() {
       this.saveSettingParams(
         this.duration,
@@ -347,24 +197,72 @@ export default {
         this.arriveFlixbus
       );
     },
-  },
-};
+    getCityLatestBlog() {
+      API({
+        url: '/blog/getCityLatestBlog',
+        method: 'post',
+        data: {
+          city: this.destination
+        }
+      }).then((res) => {
+        if (res.data.ok) {
+          res.data.data.forEach((element) => {
+            this.lastestBlogList.push({
+              image: element.image,
+              username: element.username,
+              nombreDeLikes: element.nombreDeLikes,
+              contenue: element.contenue,
+              city: element.city,
+              title: element.title,
+              date: element.date.slice(0, 6)
+            })
+          })
+        } else {
+          // console.log('ERROR!')
+          // console.log(res.data.code)
+        }
+      })
+    },
+    showBlog(content) {
+      this.isShowBlog = true
+      this.blogContent = content
+    },
+    hideBlog() {
+      this.isShowBlog = false
+    },
+  }
+
+}
 </script>
 
 <style scoped>
 /* .option-controler{
   height:150px;
 } */
-.single-controler{
+.inner{
+  overflow-x: hidden;
+}
+.blog-grid {
+  margin-top: 100px;
+}
+
+.container {
+  width: 153%;
+
+}
+.single-controler {
   min-height: 50px;
   margin-bottom: 10px;
-  white-space:nowrap;
+  white-space: nowrap;
   vertical-align: top;
 }
-.right{
+
+.right {
   min-width: 700px;
-  max-width:max-content;
+  max-width: max-content;
+  ;
 }
+
 .set_row {
   display: inline-block;
   align-content: center;
@@ -408,7 +306,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-image: linear-gradient(#172434, #172434) 0 fill / 8 20 8 0 / 0 0 0 520;
 }
 
-label{
+label {
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -450,8 +348,7 @@ label{
   margin-bottom: 20px;
 }
 
-.sncf-stations .flixbus-stations{
+.sncf-stations .flixbus-stations {
   vertical-align: middle;
 }
-
 </style>
