@@ -1,12 +1,9 @@
 <template>
     <div class="fullscreen-section">
         <LeftSection
-            :departureSNCFCityList="departureSNCFCityList" 
-            :arrivalSNCFCityList="arrivalSNCFCityList" 
-            :departureFlixbusCityList="departureFlixbusCityList" 
-            :arrivalFlixbusCityList="arrivalFlixbusCityList"
             :searchCriteria="searchCriteria"
             :settingParams="settingParams"
+            :initialStations="initialStations"
         ></LeftSection>
 		<RightSection 
             :departureSNCFCityList="departureSNCFCityList" 
@@ -34,6 +31,12 @@ export default{
     data(){
         return{
             searchCriteria: this.$route.query,
+            initialStations: {
+                departSNCF: '',
+                arriveSNCF: '',
+                departFlixbus: '',
+                arriveFlixbus: '',
+            },
             departureSNCFCityList:[],
             arrivalSNCFCityList:[],
             departureFlixbusCityList:[],
@@ -74,6 +77,13 @@ export default{
         }
     },
     mounted() {
+        this.initialStations.departSNCF = this.searchCriteria.departSNCF
+        this.initialStations.arriveSNCF = this.searchCriteria.arriveSNCF
+        this.initialStations.departFlixbus = this.searchCriteria.departFlixbus
+        this.initialStations.arriveFlixbus = this.searchCriteria.arriveFlixbus
+        console.log(this.initialStations)
+
+        
         API({
             url: "/journey/getCityGare",
             method: "post",

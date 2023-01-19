@@ -72,15 +72,23 @@ export default{
     },
     props:
     [
-        "departureSNCFCityList",
-        "arrivalSNCFCityList",
-        "departureFlixbusCityList",
-        "arrivalFlixbusCityList",
+        // "departureSNCFCityList",
+        // "arrivalSNCFCityList",
+        // "departureFlixbusCityList",
+        // "arrivalFlixbusCityList",
         "searchCriteria",
         "settingParams",
-        ],
+        "initialStations"
+    ],
     watch:{
         // arrivalFlixbusCityList:'pseudo_mounted',
+        initialStations:{
+            handler(newVal){
+                console.log(newVal)
+                this.pseudo_mounted()
+            },
+            deep:true,
+        },
         settingParams:{
             handler(newVal){
                 // console.log(newVal.sncf,this.oldSettingParams.sncf, newVal.flixbus,this.oldSettingParams.flixbus,newVal.criterias,this.oldSettingParams.criterias)
@@ -141,12 +149,21 @@ export default{
         }
     },
     mounted(){
-        // console.log('mounted')
-        // console.log(this.oldSettingParams)
 
 
     },
     methods:{
+        pseudo_mounted(){
+            console.log(this.initialStations)
+            if (this.initialStations.departSNCF != '' && this.initialStations.arriveSNCF != ''){
+                console.log('getting first SNCF result')
+                this.getSNCFResults(this.initialStations.departSNCF, this.initialStations.arriveSNCF)
+            }
+            if (this.initialStations.departFlixbus != '' && this.initialStations.arriveFlixbus != ''){
+                console.log('getting first Flixbus result')
+                this.getFlixbusResults(this.initialStations.departFlixbus, this.initialStations.arriveFlixbus)
+            }
+        },
         getSNCFResults(depart, arrival){
             this.result_status = 'search'
             // console.log(this.result_status)

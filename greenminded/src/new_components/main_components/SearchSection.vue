@@ -11,14 +11,14 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" placeholder="De..." v-model="departure" />
+                <input type="text" placeholder="De..." v-model="chosenValues.departure" />
               </div>
               <!-- end .form-group -->
             </div>
             <!-- end .col-sm-4 -->
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" placeholder="A..." v-model="arrival" />
+                <input type="text" placeholder="A..." v-model="chosenValues.arrival" />
                 <i class="pe-7s-world"></i>
               </div>
               <!-- end .form-group -->
@@ -28,14 +28,14 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="date" v-model="date" />
+                <input type="date" v-model="chosenValues.date" />
               </div>
               <!-- end .form-group -->
             </div>
             <!-- end .col-sm-4 -->
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="time" v-model="time" />
+                <input type="time" v-model="chosenValues.time" />
               </div>
               <!-- end .form-group -->
             </div>
@@ -54,6 +54,7 @@
   </div>
   <!-- end .section -->
   <AlertElement :show="showAlert" :title="'Alert!'" :hideModal="hideModal">Remplir tous les critères SVP</AlertElement>
+  <ChooseStations :show="isShowChooseStations" :values="chosenValues" :hideBloc="hideChooseStation"></ChooseStations>
   
   <div class="section dark">
     <div class="inner">
@@ -150,34 +151,47 @@ import AlertElement from "@/new_components/main_components/Alert.vue";
 import API from '@/plugins/axiosInstance'
 import BlogAffichage from './BlogAffichage.vue'
 import BlogContenu from './BlogContenu.vue'
+import ChooseStations from './ChooseStations.vue'
 
 export default {
   name: "SearchSectionVue",
   components: {
     AlertElement,
     BlogAffichage,
-    BlogContenu
+    BlogContenu,
+    ChooseStations,
   },
   data() {
     return {
       background01: require("../../assets/images/background01.jpg"),
-      departure: "",
-      arrival: "",
-      date: "",
-      time: "",
+      // departure: "",
+      // arrival: "",
+      // date: "",
+      // time: "",
+
+      // Parameters of windows
       isShowBlog:false,
       blogContent:this.blogContent,
       showAlert: false,
-      lastestBlogList: []
+      lastestBlogList: [],
+
+      // Parameters of chooseStations
+      isShowChooseStations:false,
+      chosenValues:{
+        departure:'',
+        arrival:'',
+        date:'',
+        time:'',
+      },
     };
   },
   methods: {
     getLastestBlog(){
-            API({
-                url:'/blog/getLatestBlog',
-                method:'post',
-                data: {
-                }
+      API({
+        url:'/blog/getLatestBlog',
+        method:'post',
+        data: {
+        }
 			}).then((res)=>{
 				if (res.data.ok){
 					res.data.data.forEach((element)=>{
@@ -192,45 +206,49 @@ export default {
 						})
 						console.log(this.lastestBlogList)
 					})
-                }else{
-                    // console.log('ERROR!')
-                    // console.log(res.data.code)
-                }
-            })
-        },
-        showBlog(content){
-            this.isShowBlog = true
-            this.blogContent = content
-        },
-        hideBlog(){
-            this.isShowBlog = false
-        },
+        }else{
+            // console.log('ERROR!')
+            // console.log(res.data.code)
+        }
+      })
+    },
+    showBlog(content){
+        this.isShowBlog = true
+        this.blogContent = content
+    },
+    hideBlog(){
+        this.isShowBlog = false
+    },
     searchIte() {
       if (
-        this.departure == "" ||
-        this.arrival == "" ||
-        this.date == "" ||
-        this.time == ""
+        this.chosenValues.departure == "" ||
+        this.chosenValues.arrival == "" ||
+        this.chosenValues.date == "" ||
+        this.chosenValues.time == ""
       ) {
-        console.log(this.departure == "", this.arrival == "");
+        // console.log(this.departure == "", this.arrival == "");
         this.showAlert = true;
       } else {
-        var reg1 = new RegExp("-", "g");
-        this.$router.push({
-          name: "result",
-          query: {
-            source: this.departure,
-            destination: this.arrival,
-            hour: this.time,
-            date: this.date.replace(reg1, ""),
-            date_: this.date,
-          },
-        });
+        // var reg1 = new RegExp("-", "g");
+        // this.$router.push({
+        //   name: "result",
+        //   query: {
+        //     source: this.departure,
+        //     destination: this.arrival,
+        //     hour: this.time,
+        //     date: this.date.replace(reg1, ""),
+        //     date_: this.date,
+        //   },
+        // });
+        this.isShowChooseStations = true;
       }
     },
     hideModal() {
       this.showAlert = false;
     },
+    hideChooseStation() {
+      this.isShowChooseStations = false
+    }
   },
   mounted() {
     this.getLastestBlog()
