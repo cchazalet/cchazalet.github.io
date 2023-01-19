@@ -16,7 +16,7 @@
           <p>A {{values.city}}</p>
         </div>
         <div class="blog-text">
-          <p>{{values.contenue}}</p>
+          <p v-html="values.contenue.replace(/\n|\r\n/g, '<br>')"></p>
         </div>
       </div>
       <div class="blog-footer">
