@@ -44,10 +44,10 @@
 
                             </div> <!-- end .form-group -->
                         </div> <!-- end .col-sm-4 -->
-                        
-                        <button type="submit" class="button" @click="uploadBlog()">Upload</button>
+                    
                     </form>
                     <!-- images  -->
+                    <button type="submit" class="button" @click="uploadBlog()">Upload</button>
                 </div> <!-- end .container -->
             </div> <!-- end .inner -->
         </div> <!-- end .section -->

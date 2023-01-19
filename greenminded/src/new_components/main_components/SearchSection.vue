@@ -42,10 +42,11 @@
             <!-- end .col-sm-4 -->
           </div>
           <!-- end .row -->
-          <button type="submit" class="button" @click="searchIte()">
+         
+        </form>
+        <button type="submit" class="button" @click="searchIte()">
             Rechercher
           </button>
-        </form>
         <!-- images  -->
       </div>
       <!-- end .container -->
