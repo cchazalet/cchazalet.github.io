@@ -12,7 +12,7 @@
 					<a href=""><i class="pe-so-instagram"></i></a>
 					<a href=""><i class="pe-so-google-plus"></i></a>
 				</div>
-				<div class="right">Proudly Made by 5TC Group2<a href="">+33 698819698</a></div> <!-- end .left -->
+				<div class="right">Fièrement Fabriqué Par 5TC Group2<a href="">+33 698819698</a></div> <!-- end .left -->
 			</div> <!-- end .top -->
 			<div class="bottom">20 Avenue Albert Einstein INSA</div>
 		</footer> <!-- end .footer -->

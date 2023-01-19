@@ -42,10 +42,11 @@
             <!-- end .col-sm-4 -->
           </div>
           <!-- end .row -->
-          <button type="submit" class="button" @click="searchIte()">
+         
+        </form>
+        <button type="submit" class="button" @click="searchIte()">
             Rechercher
           </button>
-        </form>
         <!-- images  -->
       </div>
       <!-- end .container -->
@@ -77,7 +78,7 @@
         <div class="page-title">
 				<div class="boxed-section light">	
 					<el-button>
-						<router-link to="/createBlog" class="button" >Create Your Own Blog</router-link>
+						<router-link to="/createBlog" class="button" >Créez Votre Propre Blog</router-link>
 					</el-button>			
 				</div>
       </div>

@@ -4,8 +4,8 @@
             <img :src="getImgUrl()" class="img-responsive">
             <div class="overlay"></div>
             <div class="content">
-                <h3><label>Title: {{ values.title }}</label></h3>
-                <p>By {{ values.username }}</p>
+                <h3><label>Titre: {{ values.title }}</label></h3>
+                <p>Par {{ values.username }}</p>
                 <h3><label>{{ values.city }}</label></h3>
                 <div class="meta">{{ values.date }}</div>
             </div> <!-- end .content -->

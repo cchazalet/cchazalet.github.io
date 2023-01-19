@@ -74,9 +74,9 @@
     </div>
     <!-- end .navigation -->
     <div class="right">
-      <router-link :to="{ path: '/login' }" class="button login-open"
+      <!-- <router-link :to="{ path: '/login' }" class="button login-open"
         >Connexion</router-link
-      >
+      > -->
 
       <!-- <a href="/login" class="button login-open">Log In</a> -->
     </div>
