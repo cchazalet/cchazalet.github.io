@@ -163,7 +163,8 @@ export default {
     "departureFlixbusCityList",
     "arrivalFlixbusCityList",
     "saveSettingParams",
-    "destination"
+    "destination",
+    "initialStations"
   ],
   data() {
     return {
@@ -183,6 +184,38 @@ export default {
 		$route () { 
 			this.getCityLatestBlog()
 		},
+    initialStations:{
+      handler(newVal){
+        console.log('update the chosen stations')
+        this.departSNCF=newVal.departSNCF
+        this.arriveSNCF=newVal.arriveSNCF
+        this.departFlixbus=newVal.departFlixbus
+        this.arriveFlixbus=newVal.arriveFlixbus
+
+      },
+      deep:true,
+    },
+    duration:{
+      handler(newVal){
+        console.log(newVal)
+        this.transSettingParams()
+      },
+      deep:true
+    },
+    ecology:{
+      handler(newVal){
+        console.log(newVal)
+        this.transSettingParams()
+      },
+      deep:true
+    },
+    price:{
+      handler(newVal){
+        console.log(newVal)
+        this.transSettingParams()
+      },
+      deep:true
+    },
   },
   methods: {
 

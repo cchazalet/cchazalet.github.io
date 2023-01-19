@@ -12,6 +12,7 @@
             :arrivalFlixbusCityList="arrivalFlixbusCityList"
             :saveSettingParams="saveSettingParams"
             :destination="searchCriteria.destination"
+            :initialStations="initialStations"
         ></RightSection>
 	</div> <!-- end .section -->
 </template>
@@ -81,6 +82,11 @@ export default{
         this.initialStations.arriveSNCF = this.searchCriteria.arriveSNCF
         this.initialStations.departFlixbus = this.searchCriteria.departFlixbus
         this.initialStations.arriveFlixbus = this.searchCriteria.arriveFlixbus
+
+        this.settingParams.sncf.departSNCF = this.searchCriteria.departSNCF
+        this.settingParams.sncf.arriveSNCF = this.searchCriteria.arriveSNCF
+        this.settingParams.flixbus.departFlixbus = this.searchCriteria.departFlixbus
+        this.settingParams.flixbus.arriveFlixbus = this.searchCriteria.arriveFlixbus
         console.log(this.initialStations)
 
         

@@ -163,6 +163,10 @@ export default{
                 console.log('getting first Flixbus result')
                 this.getFlixbusResults(this.initialStations.departFlixbus, this.initialStations.arriveFlixbus)
             }
+            this.oldSettingParams.sncf.departSNCF=this.initialStations.departSNCF
+            this.oldSettingParams.sncf.arriveSNCF=this.initialStations.arriveSNCF
+            this.oldSettingParams.flixbus.departFlixbus=this.initialStations.departFlixbus
+            this.oldSettingParams.flixbus.arriveFlixbus=this.initialStations.arriveFlixbus
         },
         getSNCFResults(depart, arrival){
             this.result_status = 'search'
