@@ -100,8 +100,9 @@ export default {
                     }
                 }).then((res) => {
                     console.log(res.status)
+                    this.$router.push('/blogPage');
+
                 });
-                this.$router.push('/blogPage');
             }
         },
         hideModal() {
